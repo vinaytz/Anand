@@ -20,7 +20,7 @@ export default function Hero() {
          but here relative is safer for the section.
       */}
       <div className="absolute inset-0 z-0">
-          <div className="absolute inset-0 bg-cover bg-center bg-no-repeat bg-[url('/gallery/Gemini_Generated_Image_505y02505y02505y.png')] scale-105 animate-slow-pan" />
+          <div className="absolute inset-0 bg-cover bg-center bg-no-repeat bg-[url('/Gemini_Generated_Image_505y02505y02505y.png')] scale-105 animate-slow-pan" />
           
           {/* 
              2. Cinematic Gradient Overlay 
