@@ -45,7 +45,7 @@ export default function InviteSection() {
 
           {/* Image Side */}
           <div className="relative h-[400px] md:h-auto min-h-full">
-             <div className="absolute inset-0 bg-[url('/gallery/5.jpeg')] bg-cover bg-center transition-all duration-1000"></div>
+             <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1507679799987-c73779587ccf?q=80&w=2071&auto=format&fit=crop')] bg-cover bg-center grayscale hover:grayscale-0 transition-all duration-1000"></div>
              <div className="absolute inset-0 bg-gradient-to-l from-rich-black/50 to-transparent"></div>
           </div>
 
