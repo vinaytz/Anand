@@ -1,67 +1,140 @@
-import React from 'react';
-import { Play } from 'lucide-react';
+"use client";
+import React from "react";
+import { motion } from "framer-motion";
+import { Play } from "lucide-react";
 
 const videos = [
   {
     title: "The Power of Silence in Leadership",
     views: "125K Views",
-    thumb: "bg-neutral-800" // In real app, put image URL here
+    duration: "12:45",
+    thumb: "/gallery/stage_speaking1.jpeg",
   },
   {
     title: "Why You Feel Stuck (And How to Move)",
     views: "89K Views",
-    thumb: "bg-neutral-800"
+    duration: "18:30",
+    thumb: "/gallery/stage_speaking2.jpeg",
   },
   {
     title: "The Future of Education in India",
     views: "45K Views",
-    thumb: "bg-neutral-800"
-  }
+    duration: "24:15",
+    thumb: "/gallery/stage_podium1.jpeg",
+  },
+  {
+    title: "Building Resilience in Uncertain Times",
+    views: "67K Views",
+    duration: "15:20",
+    thumb: "/gallery/4.jpeg",
+  },
 ];
 
 export default function VideoGallery() {
   return (
-    <section id="videos" className="py-24 px-6 md:px-12 bg-rich-black">
-      <div className="max-w-7xl mx-auto">
-        <div className="flex flex-col md:flex-row justify-between items-end mb-12 gap-6">
-           <div className="space-y-4">
-              <div className="w-12 h-1 bg-gold-500"></div>
-              <h2 className="text-4xl font-serif text-white">Watch Dr. Anand in Action</h2>
-           </div>
-           
-           <a href="https://youtube.com" target="_blank" className="text-gray-400 hover:text-white flex items-center gap-2 transition-colors">
-              Visit YouTube Channel <span className="text-gold-500">&rarr;</span>
-           </a>
+    <section
+      id="videos"
+      className="relative py-24 lg:py-32 px-6 md:px-12 bg-[#030303] overflow-hidden"
+    >
+      <div className="max-w-7xl mx-auto relative z-10">
+        {/* ── Header ── */}
+        <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-14 lg:mb-16 gap-6">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-80px" }}
+            transition={{ duration: 0.8 }}
+          >
+            <div className="flex items-center gap-4 mb-4">
+              <div className="w-10 h-[1px] bg-[#d4af37]" />
+              <span className="text-[#d4af37] text-[10px] uppercase tracking-[0.4em]">
+                Watch
+              </span>
+            </div>
+            <h2 className="text-4xl md:text-5xl font-serif text-white tracking-tight">
+              In Action
+            </h2>
+          </motion.div>
+
+          <motion.a
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true, margin: "-80px" }}
+            transition={{ delay: 0.3, duration: 0.6 }}
+            href="https://youtube.com"
+            target="_blank"
+            className="group inline-flex items-center gap-2 text-white/30 hover:text-white transition-colors duration-500 text-xs border border-white/[0.08] hover:border-[#d4af37]/30 px-5 py-2.5 rounded-full"
+            data-cursor="pointer"
+          >
+            YouTube Channel
+            <svg
+              className="w-3.5 h-3.5 text-[#d4af37] -rotate-45 group-hover:rotate-0 transition-transform duration-500"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={1.5}
+                d="M14 5l7 7m0 0l-7 7m7-7H3"
+              />
+            </svg>
+          </motion.a>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-           {videos.map((video, idx) => (
-             <div key={idx} className="group cursor-pointer">
-                <div className="relative aspect-video bg-neutral-900 rounded-lg overflow-hidden border border-white/10 group-hover:border-gold-500/50 transition-all duration-300">
-                   {/* Thumbnail Placeholder */}
-                   <div className="absolute inset-0 bg-gradient-to-br from-gray-800 to-black opacity-50"></div>
-                   
-                   {/* Play Button */}
-                   <div className="absolute inset-0 flex items-center justify-center">
-                      <div className="w-16 h-16 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 flex items-center justify-center group-hover:scale-110 group-hover:bg-gold-500 group-hover:border-gold-500 transition-all duration-300">
-                         <Play className="w-6 h-6 text-white ml-1 fill-white" />
-                      </div>
-                   </div>
+        {/* ── Video Grid — 2x2 on desktop, stacked on mobile ── */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-5">
+          {videos.map((video, idx) => (
+            <motion.div
+              key={idx}
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{ delay: 0.1 + idx * 0.1, duration: 0.8 }}
+              className="group cursor-pointer"
+              data-cursor-text="PLAY"
+            >
+              <div className="relative aspect-video rounded-xl overflow-hidden border border-white/[0.05] group-hover:border-[#d4af37]/20 transition-all duration-700">
+                {/* Thumbnail */}
+                <img
+                  src={video.thumb}
+                  alt={video.title}
+                  className="w-full h-full object-cover transition-transform duration-700 scale-[1.03] group-hover:scale-100"
+                />
 
-                   {/* Duration Badge */}
-                   <div className="absolute bottom-4 right-4 bg-black/80 text-white text-xs font-mono px-2 py-1 rounded">
-                      12:45
-                   </div>
+                {/* Overlay */}
+                <div className="absolute inset-0 bg-black/40 group-hover:bg-black/25 transition-colors duration-500" />
+
+                {/* Play button — center */}
+                <div className="absolute inset-0 flex items-center justify-center">
+                  <div className="w-14 h-14 rounded-full bg-white/10 backdrop-blur-md border border-white/20 flex items-center justify-center group-hover:scale-110 group-hover:bg-[#d4af37] group-hover:border-[#d4af37] transition-all duration-500">
+                    <Play className="w-5 h-5 text-white ml-0.5 fill-white" />
+                  </div>
                 </div>
-                
-                <h3 className="mt-4 text-xl font-medium text-white group-hover:text-gold-400 transition-colors line-clamp-2">
-                   {video.title}
-                </h3>
-                <p className="mt-1 text-sm text-gray-500">{video.views}</p>
-             </div>
-           ))}
+
+                {/* Duration chip — top right */}
+                <div className="absolute top-3 right-3 bg-black/60 backdrop-blur-sm text-white text-[10px] font-mono px-2.5 py-1 rounded-md">
+                  {video.duration}
+                </div>
+
+                {/* Bottom info bar */}
+                <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/70 via-black/30 to-transparent">
+                  <h3 className="text-sm md:text-[15px] font-medium text-white tracking-wide line-clamp-1">
+                    {video.title}
+                  </h3>
+                  <p className="text-[10px] text-white/30 mt-1 font-mono">
+                    {video.views}
+                  </p>
+                </div>
+              </div>
+            </motion.div>
+          ))}
         </div>
       </div>
+
+      {/* Bottom edge line */}
+      <div className="absolute bottom-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-white/[0.05] to-transparent" />
     </section>
   );
 }

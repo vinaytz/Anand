@@ -1,57 +1,146 @@
-import React from 'react';
-import { Globe, Users, BookMarked, Award } from 'lucide-react';
+"use client";
+import React, { useRef, useEffect, useState } from "react";
+import { motion, useScroll, useTransform, useInView } from "framer-motion";
+
+const metrics = [
+  { value: 50, suffix: "+", label: "Global Keynotes", desc: "Across 4 continents" },
+  { value: 100, suffix: "K+", label: "Lives Impacted", desc: "Students & professionals" },
+  { value: 3, suffix: "", label: "Best-Selling Books", desc: "Published internationally" },
+  { value: 20, suffix: "+", label: "Years in Academia", desc: "Shaping future leaders" },
+];
+
+function Counter({
+  target,
+  suffix,
+  inView,
+}: {
+  target: number;
+  suffix: string;
+  inView: boolean;
+}) {
+  const [count, setCount] = useState(0);
+
+  useEffect(() => {
+    if (!inView) return;
+    let start = 0;
+    const duration = 2200;
+    const startTime = Date.now();
+
+    const timer = setInterval(() => {
+      const elapsed = Date.now() - startTime;
+      const progress = Math.min(elapsed / duration, 1);
+      const eased = 1 - Math.pow(1 - progress, 4);
+      start = Math.round(eased * target);
+      setCount(start);
+      if (progress >= 1) clearInterval(timer);
+    }, 16);
+
+    return () => clearInterval(timer);
+  }, [inView, target]);
+
+  return (
+    <span>
+      {count}
+      {suffix}
+    </span>
+  );
+}
 
 export default function ImpactMetrics() {
+  const sectionRef = useRef(null);
+  const isInView = useInView(sectionRef, { once: true, margin: "-100px" });
+
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ["start end", "end start"],
+  });
+
+  const bgY = useTransform(scrollYProgress, [0, 1], ["0%", "15%"]);
+
   return (
-    <section className="py-24 bg-[#080808] relative border-b border-white/5">
-      {/* Background World Map Graphic (Abstract) */}
-      <div className="absolute inset-0 flex items-center justify-center opacity-5 pointer-events-none">
-         <div className="w-[80%] h-[80%] rounded-full border border-white/20 border-dashed animate-[spin_60s_linear_infinite]" />
-         <div className="absolute w-[60%] h-[60%] rounded-full border border-white/10" />
-      </div>
+    <section
+      ref={sectionRef}
+      className="relative py-32 md:py-44 overflow-hidden bg-[#030303]"
+    >
+      {/* Background */}
+      <motion.div
+        style={{ y: bgY }}
+        className="absolute inset-0 pointer-events-none"
+      >
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[900px] h-[900px] rounded-full border border-white/[0.02] animate-[spin_180s_linear_infinite]" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full border border-dashed border-white/[0.015]" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-[#d4af37]/[0.01] rounded-full blur-[120px]" />
+      </motion.div>
 
       <div className="max-w-7xl mx-auto px-6 relative z-10">
-        <div className="text-center mb-16">
-           <h2 className="text-4xl md:text-5xl font-serif text-white mb-4">Global Footprint</h2>
-           <p className="text-gray-500 max-w-2xl mx-auto">
-             Dr. Shukla's influence spans continents, classrooms, and boardrooms, creating a legacy of transformative leadership.
-           </p>
-        </div>
+        {/* Heading */}
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+          className="text-center mb-20 lg:mb-24"
+        >
+          <div className="flex items-center justify-center gap-4 mb-6">
+            <div className="w-12 h-[1px] bg-[#d4af37]/40" />
+            <span className="text-[#d4af37] text-[10px] uppercase tracking-[0.4em]">
+              Impact
+            </span>
+            <div className="w-12 h-[1px] bg-[#d4af37]/40" />
+          </div>
+          <h2 className="text-5xl md:text-6xl lg:text-7xl font-serif text-white tracking-tight">
+            Global Footprint
+          </h2>
+          <p className="text-white/25 max-w-lg mx-auto text-base font-light leading-relaxed mt-6">
+            A legacy of transformative leadership spanning continents,
+            classrooms, and boardrooms.
+          </p>
+        </motion.div>
 
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-12 text-center">
-           <div className="space-y-4">
-              <div className="flex justify-center text-gold-500 mb-2">
-                 <Globe className="w-8 h-8" />
-              </div>
-              <h3 className="text-5xl md:text-6xl font-serif text-white">50+</h3>
-              <p className="text-xs uppercase tracking-widest text-gray-500">Global Keynotes</p>
-           </div>
-           
-           <div className="space-y-4">
-              <div className="flex justify-center text-gold-500 mb-2">
-                 <Users className="w-8 h-8" />
-              </div>
-              <h3 className="text-5xl md:text-6xl font-serif text-white">100k+</h3>
-              <p className="text-xs uppercase tracking-widest text-gray-500">Lives Impacted</p>
-           </div>
+        {/* Metrics Cards */}
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-5">
+          {metrics.map((metric, idx) => (
+            <motion.div
+              key={idx}
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{
+                delay: 0.2 + idx * 0.1,
+                duration: 0.8,
+                ease: [0.16, 1, 0.3, 1],
+              }}
+              className="group relative rounded-2xl bg-[#080808] border border-white/[0.06] hover:border-[#d4af37]/20 transition-all duration-700 p-6 md:p-8 overflow-hidden text-center"
+            >
+              {/* Top gold accent */}
+              <div className="absolute top-0 left-1/2 -translate-x-1/2 w-12 h-[1px] bg-[#d4af37]/30 group-hover:w-20 transition-all duration-700" />
 
-           <div className="space-y-4">
-              <div className="flex justify-center text-gold-500 mb-2">
-                 <BookMarked className="w-8 h-8" />
-              </div>
-              <h3 className="text-5xl md:text-6xl font-serif text-white">3</h3>
-              <p className="text-xs uppercase tracking-widest text-gray-500">Best Sellers</p>
-           </div>
+              {/* Hover glow */}
+              <div className="absolute inset-0 bg-gradient-to-b from-[#d4af37]/[0.02] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
 
-           <div className="space-y-4">
-              <div className="flex justify-center text-gold-500 mb-2">
-                 <Award className="w-8 h-8" />
+              <div className="relative z-10">
+                <h3 className="text-4xl md:text-5xl lg:text-6xl font-serif text-white tracking-tight tabular-nums">
+                  <Counter
+                    target={metric.value}
+                    suffix={metric.suffix}
+                    inView={isInView}
+                  />
+                </h3>
+                <p className="mt-3 text-[11px] uppercase tracking-[0.25em] text-[#d4af37]/70 font-medium">
+                  {metric.label}
+                </p>
+                <p className="mt-2 text-[11px] text-white/20 font-light">
+                  {metric.desc}
+                </p>
               </div>
-              <h3 className="text-5xl md:text-6xl font-serif text-white">20+</h3>
-              <p className="text-xs uppercase tracking-widest text-gray-500">Yr. Academic Legacy</p>
-           </div>
+            </motion.div>
+          ))}
         </div>
       </div>
+
+      {/* Edge lines */}
+      <div className="absolute top-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-white/[0.04] to-transparent" />
+      <div className="absolute bottom-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-white/[0.04] to-transparent" />
     </section>
   );
 }

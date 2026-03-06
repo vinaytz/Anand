@@ -3,36 +3,40 @@
 @theme {
   --font-sans: var(--font-inter);
   --font-serif: var(--font-playfair);
-}
-
-@import "tailwindcss";
-
-@theme {
-  --font-sans: var(--font-inter);
-  --font-serif: var(--font-playfair);
   --color-gold-400: #d4af37;
   --color-gold-500: #c5a059;
   --color-gold-600: #b08d55;
-  --color-rich-black: #050505;
+  --color-rich-black: #030303;
   --color-charcoal: #0a0a0a;
 }
 
 @layer base {
+  * {
+    cursor: none;
+  }
+
+  @media (pointer: coarse) {
+    * {
+      cursor: auto;
+    }
+  }
+
   body {
-    /* 
-       Updated Background: 
-       A deep radial gradient instead of flat black.
-       This creates a "spotlight" effect in the center of the page.
-    */
-    background: radial-gradient(circle at top center, #1a1a1a 0%, #050505 60%, #000000 100%);
-    background-attachment: fixed; /* Parallax-like feel for bg */
+    background: #030303;
     color: #e5e5e5;
     font-family: var(--font-inter), sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
-  
+
   h1, h2, h3, h4, h5, h6 {
     font-family: var(--font-playfair), serif;
     letter-spacing: -0.01em;
+    color: #ffffff;
+  }
+
+  ::selection {
+    background: rgba(212, 175, 55, 0.2);
     color: #ffffff;
   }
 }
@@ -41,7 +45,7 @@
   .text-gold {
     @apply text-gold-400;
   }
-  
+
   .bg-gold-gradient {
     background: linear-gradient(135deg, #d4af37 0%, #aa8c2c 100%);
   }
@@ -51,53 +55,28 @@
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
   }
-  
-  /* Animation for the Hero Background Image */
-  @keyframes panImage {
-    0% { background-position: center; transform: scale(1.05); }
-    50% { background-position: center bottom; transform: scale(1.1); }
-    100% { background-position: center; transform: scale(1.05); }
-  }
-  .animate-slow-pan {
-    animation: panImage 20s ease-in-out infinite alternate;
+
+  /* Noise/grain texture class */
+  .bg-noise {
+    background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMDAiIGhlaWdodD0iMzAwIj48ZmlsdGVyIGlkPSJhIiB4PSIwIiB5PSIwIj48ZmVUdXJidWxlbmNlIGJhc2VGcmVxdWVuY3k9Ii43NSIgc3RpdGNoVGlsZXM9InN0aXRjaCIgdHlwZT0iZnJhY3RhbE5vaXNlIi8+PGZlQ29sb3JNYXRyaXggdHlwZT0ic2F0dXJhdGUiIHZhbHVlcz0iMCIvPjwvZmlsdGVyPjxyZWN0IHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbHRlcj0idXJsKCNhKSIgb3BhY2l0eT0iMC4wNSIvPjwvc3ZnPg==");
   }
 
-  /* Custom Scrollbar for Luxury Feel */
+  /* Custom scrollbar — ultra minimal */
   ::-webkit-scrollbar {
-    width: 10px;
+    width: 6px;
   }
   ::-webkit-scrollbar-track {
-    background: #050505; 
+    background: transparent;
   }
   ::-webkit-scrollbar-thumb {
-    background: #333; 
-    border-radius: 5px;
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: 3px;
   }
   ::-webkit-scrollbar-thumb:hover {
-    background: #444; 
+    background: rgba(255, 255, 255, 0.15);
   }
 
-  .animate-fade-in-up {
-    animation: fadeInUp 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-    opacity: 0;
-  }
-  
-  @keyframes fadeInUp {
-    from {
-      opacity: 0;
-      transform: translateY(30px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-  
-  .delay-100 { animation-delay: 0.1s; }
-  .delay-200 { animation-delay: 0.2s; }
-  .delay-300 { animation-delay: 0.3s; }
-
-  /* Aceternity UI Animations */
+  /* Spotlight animation — Aceternity UI */
   @keyframes spotlight {
     0% {
       opacity: 0;
@@ -105,14 +84,14 @@
     }
     100% {
       opacity: 1;
-      transform: translate(-50%,-40%) scale(1);
+      transform: translate(-50%, -40%) scale(1);
     }
   }
-
   .animate-spotlight {
-    animation: spotlight 2s ease .75s 1 forwards;
+    animation: spotlight 2s ease 0.75s 1 forwards;
   }
 
+  /* Aceternity UI scroll animation */
   @keyframes scroll {
     to {
       transform: translate(calc(-50% - 0.5rem));
@@ -123,14 +102,13 @@
     animation: scroll var(--animation-duration, 40s) var(--animation-direction, forwards) linear infinite;
   }
 
-  /* Hide scrollbar for Chrome, Safari and Opera */
+  /* Hide scrollbar utility */
   .no-scrollbar::-webkit-scrollbar {
     display: none;
   }
-  /* Hide scrollbar for IE, Edge and Firefox */
   .no-scrollbar {
-    -ms-overflow-style: none;  /* IE and Edge */
-    scrollbar-width: none;  /* Firefox */
+    -ms-overflow-style: none;
+    scrollbar-width: none;
   }
 }
 
