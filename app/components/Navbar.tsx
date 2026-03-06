@@ -1,20 +1,38 @@
 "use client"
 
 import React, { useState, useEffect } from 'react';
+import { createPortal } from 'react-dom';
 import { Menu, X } from 'lucide-react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { usePathname } from 'next/navigation';
 
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+    // Prevent background scroll when mobile menu is open
+    useEffect(() => {
+      if (isMobileMenuOpen) {
+        document.body.style.overflow = 'hidden';
+      } else {
+        document.body.style.overflow = '';
+      }
+      return () => {
+        document.body.style.overflow = '';
+      };
+    }, [isMobileMenuOpen]);
+  const pathname = usePathname();
+  const isHome = pathname === '/';
 
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > window.innerHeight * 0.85);
     };
     window.addEventListener('scroll', handleScroll);
+    handleScroll();
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
+  // On non-home pages, always show the navbar
+  const showNavbar = !isHome || isScrolled;
 
   const navLinks = [
     { name: 'About', href: '/about' },
@@ -25,9 +43,9 @@ export default function Navbar() {
   ];
 
   return (
-    <nav 
+    <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-700 ${
-        isScrolled 
+        showNavbar 
           ? 'bg-[#030303]/80 backdrop-blur-xl border-b border-white/[0.04] py-4 translate-y-0 opacity-100' 
           : '-translate-y-full opacity-0 pointer-events-none py-6'
       }`}
@@ -62,49 +80,50 @@ export default function Navbar() {
 
         {/* Mobile Toggle */}
         <button 
-          className="md:hidden text-white z-50"
+          className="md:hidden text-white z-[60] relative"
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+          aria-label="Toggle menu"
         >
-          {isMobileMenuOpen ? <X /> : <Menu />}
+          {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
         </button>
-
-        {/* Mobile Menu */}
-        <AnimatePresence>
-          {isMobileMenuOpen && (
-            <motion.div 
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              transition={{ duration: 0.3 }}
-              className="fixed inset-0 bg-[#030303] z-40 flex flex-col items-center justify-center space-y-8"
-            >
-              {navLinks.map((link, i) => (
-                <motion.a
-                  key={link.name}
-                  href={link.href}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.05 * i, duration: 0.4 }}
-                  className="text-3xl font-serif text-white/70 hover:text-white transition-colors"
-                  onClick={() => setIsMobileMenuOpen(false)}
-                >
-                  {link.name}
-                </motion.a>
-              ))}
-              <motion.a
-                href="#contact"
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ delay: 0.3 }}
-                className="text-lg text-[#d4af37]"
-                onClick={() => setIsMobileMenuOpen(false)}
-              >
-                Invite Me
-              </motion.a>
-            </motion.div>
-          )}
-        </AnimatePresence>
       </div>
+
+      {/* Mobile Menu Overlay */}
+      {isMobileMenuOpen && typeof window !== 'undefined' && createPortal(
+        <div
+          className="fixed inset-0 z-[99999] bg-[#030303]/95 backdrop-blur-2xl flex flex-col items-center justify-center gap-8 overflow-y-auto pointer-events-auto select-auto"
+          style={{ overscrollBehavior: 'none', touchAction: 'none' }}
+        >
+          <button
+            className="absolute top-6 right-6 text-white text-3xl focus:outline-none"
+            aria-label="Close menu"
+            onClick={() => setIsMobileMenuOpen(false)}
+            style={{ zIndex: 100000 }}
+          >
+            &times;
+          </button>
+          {navLinks.map((link) => (
+            <a
+              key={link.name}
+              href={link.href}
+              className="text-3xl font-serif text-white/80 hover:text-white transition-colors"
+              onClick={() => setIsMobileMenuOpen(false)}
+              style={{ zIndex: 100000 }}
+            >
+              {link.name}
+            </a>
+          ))}
+          <a
+            href="/#contact"
+            className="text-lg text-[#d4af37] mt-4"
+            onClick={() => setIsMobileMenuOpen(false)}
+            style={{ zIndex: 100000 }}
+          >
+            Invite Me
+          </a>
+        </div>,
+        document.body
+      )}
     </nav>
   );
 }

@@ -114,12 +114,12 @@ export default function EpicTimeline() {
         </div>
 
         {/* ── Top-right: Active year display ── */}
-        <div className="absolute top-6 right-6 md:right-12 z-30 text-right">
+        <div className="absolute top-6 right-4 md:right-12 z-30 text-right">
           <motion.span
             key={activeIdx}
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
-            className="text-[#d4af37]/20 text-[11px] uppercase tracking-[0.4em] block mb-1"
+            className="text-[#d4af37]/20 text-[9px] md:text-[11px] uppercase tracking-[0.4em] block mb-1"
           >
             {milestones[activeIdx].era}
           </motion.span>
@@ -128,7 +128,7 @@ export default function EpicTimeline() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 0.08, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="text-[120px] md:text-[180px] font-serif font-bold text-white leading-none block -mt-4 select-none"
+            className="text-[60px] sm:text-[90px] md:text-[120px] lg:text-[180px] font-serif font-bold text-white leading-none block -mt-2 md:-mt-4 select-none"
           >
             {milestones[activeIdx].year}
           </motion.span>
@@ -145,9 +145,9 @@ export default function EpicTimeline() {
         </motion.div>
 
         {/* ── Bottom: Progress system ── */}
-        <div className="absolute bottom-0 left-0 right-0 z-30 px-6 md:px-12 pb-8">
+        <div className="absolute bottom-0 left-0 right-0 z-30 px-4 md:px-12 pb-5 md:pb-8">
           {/* Progress track */}
-          <div className="relative h-[1px] bg-white/[0.06] mb-6">
+          <div className="relative h-[1px] bg-white/[0.06] mb-4 md:mb-6">
             <motion.div
               className="absolute top-0 left-0 h-full bg-gradient-to-r from-[#d4af37] to-[#d4af37]/40"
               style={{ width: lineWidth }}
@@ -178,7 +178,7 @@ export default function EpicTimeline() {
             {milestones.map((m, idx) => (
               <span
                 key={idx}
-                className={`text-[10px] md:text-xs font-mono tracking-wider transition-all duration-500 ${
+                className={`text-[8px] sm:text-[10px] md:text-xs font-mono tracking-wider transition-all duration-500 ${
                   idx === activeIdx
                     ? "text-[#d4af37]"
                     : idx <= activeIdx
@@ -194,7 +194,7 @@ export default function EpicTimeline() {
 
         {/* Scroll hint */}
         <motion.div
-          className="absolute bottom-24 left-1/2 -translate-x-1/2 z-30 flex flex-col items-center gap-2"
+          className="absolute bottom-20 md:bottom-24 left-1/2 -translate-x-1/2 z-30 flex flex-col items-center gap-2"
           animate={{ opacity: activeIdx === 0 ? 0.4 : 0, y: activeIdx === 0 ? [0, 6, 0] : 0 }}
           transition={{ duration: 2, repeat: Infinity, repeatType: "loop" }}
         >
@@ -245,10 +245,10 @@ function MilestoneCard({
       </motion.div>
 
       {/* ── Content layout ── */}
-      <div className="relative z-10 w-full h-full flex items-center px-8 md:px-16 lg:px-24">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-center w-full max-w-[1600px] mx-auto">
+      <div className="relative z-10 w-full h-full flex items-center px-5 sm:px-8 md:px-16 lg:px-24 pt-20 pb-28 md:pt-0 md:pb-0">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-16 items-center w-full max-w-[1600px] mx-auto">
           {/* Left: Text content */}
-          <div className="lg:col-span-6 xl:col-span-5 space-y-8">
+          <div className="lg:col-span-6 xl:col-span-5 space-y-5 md:space-y-8">
             {/* Era + Year tag */}
             <motion.div
               animate={{
@@ -274,7 +274,7 @@ function MilestoneCard({
                 y: isActive ? 0 : 60,
               }}
               transition={{ duration: 0.9, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
-              className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-serif text-white leading-[1.05] tracking-tight whitespace-pre-line"
+              className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-serif text-white leading-[1.08] tracking-tight whitespace-pre-line"
             >
               {m.title}
             </motion.h3>
@@ -286,7 +286,7 @@ function MilestoneCard({
                 y: isActive ? 0 : 40,
               }}
               transition={{ duration: 0.8, delay: 0.35, ease: [0.16, 1, 0.3, 1] }}
-              className="text-white/35 text-base md:text-lg leading-[1.9] font-light max-w-lg"
+              className="text-white/35 text-sm sm:text-base md:text-lg leading-[1.8] md:leading-[1.9] font-light max-w-lg"
             >
               {m.body}
             </motion.p>
@@ -298,19 +298,44 @@ function MilestoneCard({
                 y: isActive ? 0 : 30,
               }}
               transition={{ duration: 0.7, delay: 0.5, ease: [0.16, 1, 0.3, 1] }}
-              className="flex items-center gap-5 pt-2"
+              className="flex items-center gap-5 pt-1 md:pt-2"
             >
               <div className="relative">
                 <div className="absolute -inset-3 bg-[#d4af37]/[0.06] rounded-xl blur-xl" />
-                <div className="relative bg-[#080808] border border-[#d4af37]/20 rounded-xl px-6 py-4 flex items-center gap-4">
-                  <span className="text-3xl md:text-4xl font-serif text-[#d4af37]">
+                <div className="relative bg-[#080808] border border-[#d4af37]/20 rounded-xl px-4 py-3 md:px-6 md:py-4 flex items-center gap-3 md:gap-4">
+                  <span className="text-2xl sm:text-3xl md:text-4xl font-serif text-[#d4af37]">
                     {m.stat.value}
                   </span>
-                  <div className="w-[1px] h-8 bg-white/[0.06]" />
-                  <span className="text-[10px] text-white/30 uppercase tracking-[0.3em]">
+                  <div className="w-[1px] h-6 md:h-8 bg-white/[0.06]" />
+                  <span className="text-[9px] md:text-[10px] text-white/30 uppercase tracking-[0.3em]">
                     {m.stat.label}
                   </span>
                 </div>
+              </div>
+            </motion.div>
+
+            {/* Mobile: Inline image preview */}
+            <motion.div
+              className="lg:hidden relative rounded-xl overflow-hidden aspect-[16/9] mt-2"
+              animate={{
+                opacity: isActive ? 1 : 0,
+                y: isActive ? 0 : 20,
+              }}
+              transition={{ duration: 0.7, delay: 0.55, ease: [0.16, 1, 0.3, 1] }}
+            >
+              <img
+                src={m.image}
+                alt={m.title}
+                className="w-full h-full object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#030303]/70 via-transparent to-transparent" />
+              <div className="absolute bottom-3 left-3 flex items-center gap-2">
+                <div className="w-7 h-7 bg-[#d4af37] rounded-full flex items-center justify-center">
+                  <span className="text-black text-[10px] font-bold">
+                    {String(idx + 1).padStart(2, "0")}
+                  </span>
+                </div>
+                <span className="text-white/40 text-[10px] font-mono">{m.year}</span>
               </div>
             </motion.div>
           </div>

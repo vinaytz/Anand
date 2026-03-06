@@ -27,10 +27,10 @@ export default function AboutPage() {
       />
 
       {/* ── Cinematic Header ── */}
-      <div className="relative h-[70vh] bg-[#030303]">
+      <div className="relative h-[50vh] sm:h-[60vh] md:h-[70vh] bg-[#030303]">
         {/* Massive background text — positioned at bottom, outside overflow-hidden so it won't clip */}
         <div className="absolute inset-x-0 -bottom-29 flex items-end justify-center pointer-events-none select-none z-[1] overflow-visible">
-          <span className="text-[20vw] font-serif font-bold text-white/[0.02] uppercase tracking-tighter whitespace-nowrap leading-none translate-y-[30%]">
+          <span className="text-[28vw] sm:text-[22vw] md:text-[20vw] font-serif font-bold text-white/[0.02] uppercase tracking-tighter whitespace-nowrap leading-none translate-y-[30%]">
             ABOUT
           </span>
         </div>
@@ -55,10 +55,10 @@ export default function AboutPage() {
               Biography
             </span>
           </div>
-          <h1 className="text-6xl md:text-8xl lg:text-9xl font-serif text-white tracking-tight leading-[0.95]">
+          <h1 className="text-5xl sm:text-6xl md:text-8xl lg:text-9xl font-serif text-white tracking-tight leading-[0.95]">
             The Story
           </h1>
-          <p className="text-white/30 text-lg md:text-xl max-w-xl mt-6 font-light leading-relaxed">
+          <p className="text-white/30 text-base sm:text-lg md:text-xl max-w-xl mt-4 md:mt-6 font-light leading-relaxed">
             From the lecture halls of India to global stages — the journey of
             defining modern leadership.
           </p>
