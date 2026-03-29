@@ -6,7 +6,7 @@ import MagneticButton from "./MagneticButton";
 export default function Footer() {
   return (
     <footer
-      className="relative bg-[#030303] overflow-hidden border-t border-white/[0.04]"
+      className="relative bg-[var(--th-bg)] overflow-hidden border-t border-[var(--th-border-subtle)] transition-colors duration-300"
     >
       {/* ─── Mega Quote Section ─── */}
       <div className="relative py-36 md:py-48 px-6 overflow-hidden">
@@ -15,11 +15,11 @@ export default function Footer() {
           className="absolute inset-0 pointer-events-none"
           style={{
             backgroundSize: "24px 24px",
-            backgroundImage: "radial-gradient(#404040 1px, transparent 1px)",
+            backgroundImage: "radial-gradient(var(--th-dot) 1px, transparent 1px)",
           }}
         />
         {/* Top & bottom fade */}
-        <div className="absolute inset-0 pointer-events-none bg-gradient-to-b from-[#030303] via-transparent to-[#030303]" />
+        <div className="absolute inset-0 pointer-events-none bg-gradient-to-b from-[var(--th-bg)] via-transparent to-[var(--th-bg)]" />
 
         {/* Giant background text */}
         <div className="absolute inset-0 flex items-center justify-center pointer-events-none select-none overflow-hidden">
@@ -28,7 +28,7 @@ export default function Footer() {
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 1.5, ease: [0.16, 1, 0.3, 1] }}
-            className="text-[18vw] font-serif font-bold text-white/[0.012] uppercase tracking-tighter whitespace-nowrap"
+            className="text-[18vw] font-serif font-bold text-[var(--th-watermark)] uppercase tracking-tighter whitespace-nowrap"
           >
             LEGACY
           </motion.span>
@@ -51,19 +51,19 @@ export default function Footer() {
             </span>
             <div className="w-12 h-[1px] bg-[#d4af37]/40" />
           </div>
-          <h2 className="text-3xl md:text-5xl lg:text-6xl font-serif text-white leading-[1.15] tracking-tight">
+          <h2 className="text-3xl md:text-5xl lg:text-6xl font-serif text-[var(--th-text)] leading-[1.15] tracking-tight">
             &ldquo;To lead is to serve.
             <br />
             To speak is to heal.&rdquo;
           </h2>
-          <p className="text-white/25 text-base font-light italic tracking-wide">
+          <p className="text-[var(--th-text-4)] text-base font-light italic tracking-wide">
             &mdash; Dr. Anand K Shukla
           </p>
         </motion.div>
       </div>
 
       {/* ─── Footer Navigation ─── */}
-      <div className="border-t border-white/[0.04]">
+      <div className="border-t border-[var(--th-border-subtle)]">
         <div className="max-w-7xl mx-auto px-6 md:px-12 py-20">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-12 md:gap-16">
             {/* Explore */}
@@ -82,7 +82,7 @@ export default function Footer() {
                   <li key={link.name}>
                     <a
                       href={link.href}
-                      className="text-white/25 text-sm font-light tracking-wide hover:text-white transition-colors duration-500 inline-block group"
+                      className="text-[var(--th-text-4)] text-sm font-light tracking-wide hover:text-[var(--th-text)] transition-colors duration-500 inline-block group"
                       data-cursor="pointer"
                     >
                       <span className="relative">
@@ -106,7 +106,7 @@ export default function Footer() {
                     <li key={name}>
                       <a
                         href="#"
-                        className="text-white/25 text-sm font-light tracking-wide hover:text-white transition-colors duration-500 inline-block group"
+                        className="text-[var(--th-text-4)] text-sm font-light tracking-wide hover:text-[var(--th-text)] transition-colors duration-500 inline-block group"
                         data-cursor="pointer"
                       >
                         <span className="relative">
@@ -125,15 +125,15 @@ export default function Footer() {
               <h4 className="text-[#d4af37] text-[10px] uppercase tracking-[0.3em] mb-8 font-medium">
                 Newsletter
               </h4>
-              <p className="text-white/20 text-sm mb-8 max-w-xs font-light leading-relaxed">
+              <p className="text-[var(--th-text-4)] text-sm mb-8 max-w-xs font-light leading-relaxed">
                 Join 50,000+ readers receiving monthly insights on leadership
                 and resilience.
               </p>
-              <div className="flex bg-white/[0.03] border border-white/[0.06] rounded-full p-1.5 max-w-sm focus-within:border-[#d4af37]/30 transition-colors duration-500">
+              <div className="flex bg-[var(--th-input-bg)] border border-[var(--th-border)] rounded-full p-1.5 max-w-sm focus-within:border-[#d4af37]/30 transition-colors duration-500">
                 <input
                   type="email"
                   placeholder="Email Address"
-                  className="bg-transparent text-white px-5 py-2.5 w-full text-sm focus:outline-none placeholder:text-white/15"
+                  className="bg-transparent text-[var(--th-text)] px-5 py-2.5 w-full text-sm focus:outline-none placeholder:text-[var(--th-text-5)]"
                 />
                 <MagneticButton
                   as="button"
@@ -161,9 +161,9 @@ export default function Footer() {
       </div>
 
       {/* ─── Bottom Bar ─── */}
-      <div className="border-t border-white/[0.04]">
+      <div className="border-t border-[var(--th-border-subtle)]">
         <div className="max-w-7xl mx-auto px-6 md:px-12 py-6 flex flex-col md:flex-row justify-between items-center gap-4">
-          <span className="text-white/15 text-[11px] uppercase tracking-[0.2em]">
+          <span className="text-[var(--th-text-5)] text-[11px] uppercase tracking-[0.2em]">
             &copy; {new Date().getFullYear()} Dr. Anand K Shukla
           </span>
 
@@ -172,7 +172,7 @@ export default function Footer() {
               <a
                 key={link}
                 href="#"
-                className="text-white/15 text-[11px] uppercase tracking-[0.2em] hover:text-white/40 transition-colors duration-500"
+                className="text-[var(--th-text-5)] text-[11px] uppercase tracking-[0.2em] hover:text-[var(--th-text-3)] transition-colors duration-500"
                 data-cursor="pointer"
               >
                 {link}

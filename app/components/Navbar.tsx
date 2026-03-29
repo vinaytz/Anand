@@ -2,12 +2,14 @@
 
 import React, { useState, useEffect } from 'react';
 import { createPortal } from 'react-dom';
-import { Menu, X } from 'lucide-react';
+import { Menu, X, Sun, Moon } from 'lucide-react';
 import { usePathname } from 'next/navigation';
+import { useTheme } from './ThemeProvider';
 
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const { theme, toggleTheme } = useTheme();
     // Prevent background scroll when mobile menu is open
     useEffect(() => {
       if (isMobileMenuOpen) {
@@ -46,13 +48,13 @@ export default function Navbar() {
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-700 ${
         showNavbar 
-          ? 'bg-[#030303]/80 backdrop-blur-xl border-b border-white/[0.04] py-4 translate-y-0 opacity-100' 
+          ? 'bg-[var(--th-overlay)] backdrop-blur-xl border-b border-[var(--th-border-subtle)] py-4 translate-y-0 opacity-100' 
           : '-translate-y-full opacity-0 pointer-events-none py-6'
       }`}
     >
       <div className="max-w-7xl mx-auto px-6 md:px-12 flex justify-between items-center">
         {/* Logo */}
-        <a href="/" className="font-serif text-xl text-white tracking-tight z-50" data-cursor="pointer">
+        <a href="/" className="font-serif text-xl text-[var(--th-text)] tracking-tight z-50" data-cursor="pointer">
           Dr. Anand K <span className="text-[#d4af37]">Shukla</span>
         </a>
 
@@ -62,40 +64,68 @@ export default function Navbar() {
             <a 
               key={link.name} 
               href={link.href}
-              className="relative text-[12px] uppercase tracking-[0.2em] text-white/30 hover:text-white transition-colors duration-500 group"
+              className="relative text-[12px] uppercase tracking-[0.2em] text-[var(--th-text-3)] hover:text-[var(--th-text)] transition-colors duration-500 group"
               data-cursor="pointer"
             >
               {link.name}
               <span className="absolute -bottom-1 left-0 w-0 h-[0.5px] bg-[#d4af37] group-hover:w-full transition-all duration-500" />
             </a>
           ))}
+
+          {/* Theme Toggle */}
+          <button
+            onClick={toggleTheme}
+            className="relative w-9 h-9 rounded-full border border-[var(--th-border)] hover:border-[#d4af37]/40 flex items-center justify-center transition-all duration-500 group"
+            aria-label="Toggle theme"
+            data-cursor="pointer"
+          >
+            {theme === 'light' ? (
+              <Moon className="w-4 h-4 text-[var(--th-text-3)] group-hover:text-[#d4af37] transition-colors duration-300" />
+            ) : (
+              <Sun className="w-4 h-4 text-[var(--th-text-3)] group-hover:text-[#d4af37] transition-colors duration-300" />
+            )}
+          </button>
+
           <a 
             href="/#contact"
-            className="px-5 py-2 border border-white/10 text-[12px] uppercase tracking-[0.2em] text-white/60 hover:border-[#d4af37]/40 hover:text-[#d4af37] transition-all duration-500 rounded-full"
+            className="px-5 py-2 border border-[var(--th-border)] text-[12px] uppercase tracking-[0.2em] text-[var(--th-text-2)] hover:border-[#d4af37]/40 hover:text-[#d4af37] transition-all duration-500 rounded-full"
             data-cursor="pointer"
           >
             Invite Me
           </a>
         </div>
 
-        {/* Mobile Toggle */}
-        <button 
-          className="md:hidden text-white z-[60] relative"
-          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-          aria-label="Toggle menu"
-        >
-          {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
-        </button>
+        {/* Mobile: Theme Toggle + Menu Toggle */}
+        <div className="md:hidden flex items-center gap-3 z-[60]">
+          <button
+            onClick={toggleTheme}
+            className="w-9 h-9 rounded-full border border-[var(--th-border)] flex items-center justify-center"
+            aria-label="Toggle theme"
+          >
+            {theme === 'light' ? (
+              <Moon className="w-4 h-4 text-[var(--th-text-3)]" />
+            ) : (
+              <Sun className="w-4 h-4 text-[var(--th-text-3)]" />
+            )}
+          </button>
+          <button 
+            className="text-[var(--th-text)] relative"
+            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            aria-label="Toggle menu"
+          >
+            {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+          </button>
+        </div>
       </div>
 
       {/* Mobile Menu Overlay */}
       {isMobileMenuOpen && typeof window !== 'undefined' && createPortal(
         <div
-          className="fixed inset-0 z-[99999] bg-[#030303]/95 backdrop-blur-2xl flex flex-col items-center justify-center gap-8 overflow-y-auto pointer-events-auto select-auto"
+          className="fixed inset-0 z-[99999] bg-[var(--th-overlay-heavy)] backdrop-blur-2xl flex flex-col items-center justify-center gap-8 overflow-y-auto pointer-events-auto select-auto"
           style={{ overscrollBehavior: 'none', touchAction: 'none' }}
         >
           <button
-            className="absolute top-6 right-6 text-white text-3xl focus:outline-none"
+            className="absolute top-6 right-6 text-[var(--th-text)] text-3xl focus:outline-none"
             aria-label="Close menu"
             onClick={() => setIsMobileMenuOpen(false)}
             style={{ zIndex: 100000 }}
@@ -106,7 +136,7 @@ export default function Navbar() {
             <a
               key={link.name}
               href={link.href}
-              className="text-3xl font-serif text-white/80 hover:text-white transition-colors"
+              className="text-3xl font-serif text-[var(--th-text-2)] hover:text-[var(--th-text)] transition-colors"
               onClick={() => setIsMobileMenuOpen(false)}
               style={{ zIndex: 100000 }}
             >

@@ -55,7 +55,7 @@ function ParallaxColumn({
       <div className="absolute -inset-[1px] rounded-3xl bg-gradient-to-b from-[#d4af37]/20 via-transparent to-[#d4af37]/10 opacity-0 group-hover:opacity-100 transition-opacity duration-700 blur-sm" />
 
       <div
-        className="relative overflow-hidden rounded-3xl border border-white/[0.06] group-hover:border-[#d4af37]/20 transition-all duration-700 shadow-2xl shadow-black/50"
+        className="relative overflow-hidden rounded-3xl border border-[var(--th-border)] group-hover:border-[#d4af37]/20 transition-all duration-700 shadow-2xl"
         style={{
           height: "75vh",
         }}
@@ -70,12 +70,12 @@ function ParallaxColumn({
         </motion.div>
 
         {/* Multi-layer overlay for depth */}
-        <div className="absolute inset-0 bg-gradient-to-t from-[#030303] via-[#030303]/40 to-transparent opacity-90 group-hover:opacity-70 transition-opacity duration-700" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[var(--th-bg)] via-[var(--th-bg-40)] to-transparent opacity-90 group-hover:opacity-70 transition-opacity duration-700" />
         <div className={`absolute inset-0 bg-gradient-to-t ${img.accent} to-transparent opacity-30 mix-blend-multiply`} />
         <div className="absolute inset-0 bg-gradient-to-br from-white/[0.02] to-transparent" />
 
         {/* Subtle inner border glow */}
-        <div className="absolute inset-0 rounded-3xl ring-1 ring-inset ring-white/[0.05] group-hover:ring-[#d4af37]/10 transition-all duration-700" />
+        <div className="absolute inset-0 rounded-3xl ring-1 ring-inset ring-[var(--th-border)] group-hover:ring-[#d4af37]/10 transition-all duration-700" />
 
         {/* Content */}
         <motion.div
@@ -100,26 +100,26 @@ function ParallaxColumn({
           <p className="text-[#d4af37] text-[10px] uppercase tracking-[0.4em] mb-3 font-medium">
             {img.label}
           </p>
-          <h3 className="text-2xl md:text-3xl font-serif text-white leading-snug max-w-sm drop-shadow-lg">
+          <h3 className="text-2xl md:text-3xl font-serif text-[var(--th-text)] leading-snug max-w-sm drop-shadow-lg">
             {img.desc}
           </h3>
 
           {/* Hover reveal arrow */}
           <div className="mt-5 flex items-center gap-2 opacity-0 translate-y-2 group-hover:opacity-60 group-hover:translate-y-0 transition-all duration-500">
-            <div className="w-6 h-[1px] bg-white/40" />
-            <svg className="w-3 h-3 text-white/40" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+            <div className="w-6 h-[1px] bg-[var(--th-text-3)]" />
+            <svg className="w-3 h-3 text-[var(--th-text-3)]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
               <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
             </svg>
           </div>
         </motion.div>
 
         {/* Index number — more visible with glass feel */}
-        <div className="absolute top-8 right-8 text-white/[0.04] text-9xl font-serif font-bold select-none pointer-events-none group-hover:text-white/[0.06] transition-colors duration-700">
+        <div className="absolute top-8 right-8 text-[var(--th-watermark)] text-9xl font-serif font-bold select-none pointer-events-none group-hover:text-[var(--th-text-5)] transition-colors duration-700">
           0{index + 1}
         </div>
 
         {/* Corner accent */}
-        <div className="absolute top-6 left-6 w-5 h-5 border-l border-t border-white/[0.08] group-hover:border-[#d4af37]/30 transition-colors duration-700 rounded-tl-sm" />
+        <div className="absolute top-6 left-6 w-5 h-5 border-l border-t border-[var(--th-border)] group-hover:border-[#d4af37]/30 transition-colors duration-700 rounded-tl-sm" />
       </div>
     </motion.div>
   );
@@ -127,17 +127,17 @@ function ParallaxColumn({
 
 export default function VisualJourney() {
   return (
-    <section className="relative py-0 bg-[#030303] overflow-hidden">
+    <section className="relative py-0 bg-[var(--th-bg)] overflow-hidden transition-colors duration-300">
       {/* Dot grid background */}
       <div
         className="absolute inset-0 pointer-events-none"
         style={{
           backgroundSize: "24px 24px",
-          backgroundImage: "radial-gradient(#404040 1px, transparent 1px)",
+          backgroundImage: "radial-gradient(var(--th-dot) 1px, transparent 1px)",
         }}
       />
       {/* Top & bottom fade to blend the dots */}
-      <div className="absolute inset-0 pointer-events-none bg-gradient-to-b from-[#030303] via-transparent to-[#030303]" />
+      <div className="absolute inset-0 pointer-events-none bg-gradient-to-b from-[var(--th-bg)] via-transparent to-[var(--th-bg)]" />
 
       {/* Ambient background glow */}
       <div className="absolute top-1/3 left-1/4 w-[600px] h-[600px] bg-[#d4af37]/[0.02] rounded-full blur-[150px] pointer-events-none" />
@@ -161,10 +161,10 @@ export default function VisualJourney() {
         <span className="text-[#d4af37] text-[10px] uppercase tracking-[0.5em] font-medium">
           Visual Journey
         </span>
-        <h2 className="text-4xl md:text-5xl lg:text-6xl font-serif text-white mt-5 tracking-tight">
+        <h2 className="text-4xl md:text-5xl lg:text-6xl font-serif text-[var(--th-text)] mt-5 tracking-tight">
           Moments That Define
         </h2>
-        <p className="text-white/25 text-sm md:text-base max-w-md mx-auto mt-4 font-light">
+        <p className="text-[var(--th-text-4)] text-sm md:text-base max-w-md mx-auto mt-4 font-light">
           A curated portfolio of leadership, impact, and global presence.
         </p>
       </motion.div>
@@ -180,7 +180,7 @@ export default function VisualJourney() {
 
       {/* Floating watermark text */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none z-20 text-center mix-blend-overlay select-none">
-        <h2 className="text-[12vw] font-serif font-black text-white/[0.03] uppercase tracking-tighter leading-none">
+        <h2 className="text-[12vw] font-serif font-black text-[var(--th-watermark)] uppercase tracking-tighter leading-none">
           World
           <br />
           Class

@@ -34,7 +34,7 @@ export default function VideoGallery() {
   return (
     <section
       id="videos"
-      className="relative py-24 lg:py-32 px-6 md:px-12 bg-[#030303] overflow-hidden"
+      className="relative py-24 lg:py-32 px-6 md:px-12 bg-[var(--th-bg)] overflow-hidden transition-colors duration-300"
     >
       <div className="max-w-7xl mx-auto relative z-10">
         {/* ── Header ── */}
@@ -51,7 +51,7 @@ export default function VideoGallery() {
                 Watch
               </span>
             </div>
-            <h2 className="text-4xl md:text-5xl font-serif text-white tracking-tight">
+            <h2 className="text-4xl md:text-5xl font-serif text-[var(--th-text)] tracking-tight">
               In Action
             </h2>
           </motion.div>
@@ -63,7 +63,7 @@ export default function VideoGallery() {
             transition={{ delay: 0.3, duration: 0.6 }}
             href="https://youtube.com"
             target="_blank"
-            className="group inline-flex items-center gap-2 text-white/30 hover:text-white transition-colors duration-500 text-xs border border-white/[0.08] hover:border-[#d4af37]/30 px-5 py-2.5 rounded-full"
+            className="group inline-flex items-center gap-2 text-[var(--th-text-3)] hover:text-[var(--th-text)] transition-colors duration-500 text-xs border border-[var(--th-border)] hover:border-[#d4af37]/30 px-5 py-2.5 rounded-full"
             data-cursor="pointer"
           >
             YouTube Channel
@@ -95,7 +95,7 @@ export default function VideoGallery() {
               className="group cursor-pointer"
               data-cursor-text="PLAY"
             >
-              <div className="relative aspect-video rounded-xl overflow-hidden border border-white/[0.05] group-hover:border-[#d4af37]/20 transition-all duration-700">
+              <div className="relative aspect-video rounded-xl overflow-hidden border border-[var(--th-border)] group-hover:border-[#d4af37]/20 transition-all duration-700">
                 {/* Thumbnail */}
                 <img
                   src={video.thumb}
@@ -108,7 +108,7 @@ export default function VideoGallery() {
 
                 {/* Play button — center */}
                 <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="w-14 h-14 rounded-full bg-white/10 backdrop-blur-md border border-white/20 flex items-center justify-center group-hover:scale-110 group-hover:bg-[#d4af37] group-hover:border-[#d4af37] transition-all duration-500">
+                  <div className="w-14 h-14 rounded-full bg-[var(--th-bg-15)] backdrop-blur-md border border-[var(--th-border-hover)] flex items-center justify-center group-hover:scale-110 group-hover:bg-[#d4af37] group-hover:border-[#d4af37] transition-all duration-500">
                     <Play className="w-5 h-5 text-white ml-0.5 fill-white" />
                   </div>
                 </div>
@@ -120,10 +120,10 @@ export default function VideoGallery() {
 
                 {/* Bottom info bar */}
                 <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/70 via-black/30 to-transparent">
-                  <h3 className="text-sm md:text-[15px] font-medium text-white tracking-wide line-clamp-1">
+                  <h3 className="text-sm md:text-[15px] font-medium text-[var(--th-text)] tracking-wide line-clamp-1">
                     {video.title}
                   </h3>
-                  <p className="text-[10px] text-white/30 mt-1 font-mono">
+                  <p className="text-[10px] text-[var(--th-text-3)] mt-1 font-mono">
                     {video.views}
                   </p>
                 </div>
@@ -134,7 +134,7 @@ export default function VideoGallery() {
       </div>
 
       {/* Bottom edge line */}
-      <div className="absolute bottom-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-white/[0.05] to-transparent" />
+      <div className="absolute bottom-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-[var(--th-border-subtle)] to-transparent" />
     </section>
   );
 }

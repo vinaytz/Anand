@@ -7,7 +7,7 @@ import EpicTimeline from "../components/EpicTimeline";
 
 export default function AboutPage() {
   return (
-    <main className="min-h-screen bg-rich-black selection:bg-gold-500 selection:text-black">
+    <main className="min-h-screen bg-[var(--th-bg)] selection:bg-gold-500 selection:text-black transition-colors duration-300">
       <Navbar />
 
       {/* Top-right grid */}
@@ -15,8 +15,8 @@ export default function AboutPage() {
         className="fixed inset-0 z-[6] pointer-events-none"
         style={{
           backgroundImage: `
-            linear-gradient(to right, rgba(255,255,255,0.02) 1px, transparent 1px),
-            linear-gradient(to bottom, rgba(255,255,255,0.02) 1px, transparent 1px)
+            linear-gradient(to right, var(--th-grid) 1px, transparent 1px),
+            linear-gradient(to bottom, var(--th-grid) 1px, transparent 1px)
           `,
           backgroundSize: "48px 48px",
           WebkitMaskImage:
@@ -27,10 +27,10 @@ export default function AboutPage() {
       />
 
       {/* ── Cinematic Header ── */}
-      <div className="relative h-[50vh] sm:h-[60vh] md:h-[70vh] bg-[#030303]">
+      <div className="relative h-[50vh] sm:h-[60vh] md:h-[70vh] bg-[var(--th-bg)]">
         {/* Massive background text — positioned at bottom, outside overflow-hidden so it won't clip */}
         <div className="absolute inset-x-0 -bottom-29 flex items-end justify-center pointer-events-none select-none z-[1] overflow-visible">
-          <span className="text-[28vw] sm:text-[22vw] md:text-[20vw] font-serif font-bold text-white/[0.02] uppercase tracking-tighter whitespace-nowrap leading-none translate-y-[30%]">
+          <span className="text-[28vw] sm:text-[22vw] md:text-[20vw] font-serif font-bold text-[var(--th-watermark)] uppercase tracking-tighter whitespace-nowrap leading-none translate-y-[30%]">
             ABOUT
           </span>
         </div>
@@ -43,8 +43,8 @@ export default function AboutPage() {
               alt="Dr. Anand K Shukla"
               className="w-full h-full object-cover opacity-25 grayscale"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-[#030303] via-[#030303]/50 to-[#030303]/30" />
-            <div className="absolute inset-0 bg-gradient-to-r from-[#030303]/80 to-transparent" />
+            <div className="absolute inset-0 bg-gradient-to-t from-[var(--th-bg)] via-[var(--th-bg-50)] to-[var(--th-bg-30)]" />
+            <div className="absolute inset-0 bg-gradient-to-r from-[var(--th-bg-80)] to-transparent" />
           </div>
 
         {/* Content */}
@@ -55,17 +55,17 @@ export default function AboutPage() {
               Biography
             </span>
           </div>
-          <h1 className="text-5xl sm:text-6xl md:text-8xl lg:text-9xl font-serif text-white tracking-tight leading-[0.95]">
+          <h1 className="text-5xl sm:text-6xl md:text-8xl lg:text-9xl font-serif text-[var(--th-text)] tracking-tight leading-[0.95]">
             The Story
           </h1>
-          <p className="text-white/30 text-base sm:text-lg md:text-xl max-w-xl mt-4 md:mt-6 font-light leading-relaxed">
+          <p className="text-[var(--th-text-3)] text-base sm:text-lg md:text-xl max-w-xl mt-4 md:mt-6 font-light leading-relaxed">
             From the lecture halls of India to global stages — the journey of
             defining modern leadership.
           </p>
         </div>
 
           {/* Bottom edge */}
-          <div className="absolute bottom-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-white/[0.05] to-transparent" />
+          <div className="absolute bottom-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-[var(--th-border-subtle)] to-transparent" />
         </div>
       </div>
 

@@ -44,7 +44,7 @@ export default function AboutSection() {
     <section
       ref={sectionRef}
       id="about"
-      className="relative py-32 lg:py-44 px-6 md:px-12 bg-[#030303] overflow-hidden"
+      className="relative py-32 lg:py-44 px-6 md:px-12 bg-[var(--th-bg)] overflow-hidden transition-colors duration-300"
     >
       {/* Background */}
       <div className="absolute inset-0 pointer-events-none">
@@ -67,7 +67,7 @@ export default function AboutSection() {
               <div className="absolute -top-5 -left-5 w-full h-full border border-[#d4af37]/40 rounded-2xl transition-all duration-700 group-hover:border-[#d4af37]/60 shadow-[0_0_40px_rgba(212,175,55,0.15)] group-hover:shadow-[0_0_60px_rgba(212,175,55,0.25)]" />
 
               {/* Section number watermark */}
-              <span className="absolute -top-12 -left-4 text-[100px] font-serif font-bold text-white/[0.02] leading-none select-none pointer-events-none">
+              <span className="absolute -top-12 -left-4 text-[100px] font-serif font-bold text-[var(--th-watermark)] leading-none select-none pointer-events-none">
                 01
               </span>
 
@@ -82,7 +82,7 @@ export default function AboutSection() {
                   viewport={{ once: true, amount: 0.8 }}
                   transition={{ duration: 1.8, ease: [0.16, 1, 0.3, 1] }}
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#030303] via-transparent to-transparent opacity-50" />
+                <div className="absolute inset-0 bg-gradient-to-t from-[var(--th-bg)] via-transparent to-transparent opacity-50" />
               </div>
 
               {/* Quote overlay */}
@@ -91,10 +91,10 @@ export default function AboutSection() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-50px" }}
                 transition={{ delay: 0.6, duration: 0.8 }}
-                className="absolute -bottom-8 -right-4 md:right-[-40px] bg-[#080808] border border-white/[0.06] rounded-xl p-6 max-w-[280px] shadow-2xl"
+                className="absolute -bottom-8 -right-4 md:right-[-40px] bg-[var(--th-card)] border border-[var(--th-border)] rounded-xl p-6 max-w-[280px] shadow-2xl"
               >
                 <div className="w-8 h-[1px] bg-[#d4af37] mb-4" />
-                <p className="font-serif italic text-white/60 text-sm leading-relaxed">
+                <p className="font-serif italic text-[var(--th-text-2)] text-sm leading-relaxed">
                   &ldquo;Empowering the next generation of leaders through
                   wisdom and silent authority.&rdquo;
                 </p>
@@ -106,10 +106,10 @@ export default function AboutSection() {
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true, margin: "-50px" }}
                 transition={{ delay: 0.8, duration: 0.6 }}
-                className="absolute -top-3 -right-3 w-20 h-20 bg-[#080808] border border-[#d4af37]/20 rounded-full flex flex-col items-center justify-center shadow-xl"
+                className="absolute -top-3 -right-3 w-20 h-20 bg-[var(--th-card)] border border-[#d4af37]/20 rounded-full flex flex-col items-center justify-center shadow-xl"
               >
                 <span className="text-lg font-serif text-[#d4af37]">20+</span>
-                <span className="text-[7px] text-white/30 uppercase tracking-wider">Years</span>
+                <span className="text-[7px] text-[var(--th-text-3)] uppercase tracking-wider">Years</span>
               </motion.div>
             </div>
           </motion.div>
@@ -139,11 +139,11 @@ export default function AboutSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-100px" }}
               transition={{ delay: 0.15, duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-              className="text-4xl md:text-5xl lg:text-6xl font-serif text-white leading-[1.1] tracking-tight"
+              className="text-4xl md:text-5xl lg:text-6xl font-serif text-[var(--th-text)] leading-[1.1] tracking-tight"
             >
               Scholar. Speaker.
               <br />
-              <span className="text-white/25">Thought Leader.</span>
+              <span className="text-[var(--th-text-4)]">Thought Leader.</span>
             </motion.h2>
 
             {/* Body */}
@@ -152,7 +152,7 @@ export default function AboutSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-100px" }}
               transition={{ delay: 0.3, duration: 0.8 }}
-              className="text-white/35 text-lg leading-[1.9] max-w-xl font-light"
+              className="text-[var(--th-text-3)] text-lg leading-[1.9] max-w-xl font-light"
             >
               A motivational speaker, academic dean, and author on a mission to
               bridge the gap between educational theory and real-world
@@ -176,24 +176,24 @@ export default function AboutSection() {
                       duration: 0.7,
                       ease: [0.16, 1, 0.3, 1],
                     }}
-                    className="group relative rounded-xl bg-[#080808] border border-white/[0.06] hover:border-[#d4af37]/20 transition-all duration-700 p-5 overflow-hidden"
+                    className="group relative rounded-xl bg-[var(--th-card)] border border-[var(--th-border)] hover:border-[#d4af37]/20 transition-all duration-700 p-5 overflow-hidden"
                   >
                     {/* Hover glow */}
                     <div className="absolute inset-0 bg-gradient-to-b from-[#d4af37]/[0.03] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 rounded-xl" />
 
                     <div className="relative z-10">
                       <div className="flex items-center justify-between mb-4">
-                        <div className="w-9 h-9 rounded-lg bg-white/[0.03] border border-white/[0.06] flex items-center justify-center text-[#d4af37] group-hover:border-[#d4af37]/30 group-hover:bg-[#d4af37]/5 transition-all duration-500">
+                        <div className="w-9 h-9 rounded-lg bg-[var(--th-input-bg)] border border-[var(--th-border)] flex items-center justify-center text-[#d4af37] group-hover:border-[#d4af37]/30 group-hover:bg-[#d4af37]/5 transition-all duration-500">
                           <Icon className="w-4 h-4" />
                         </div>
                         <span className="text-2xl font-serif text-[#d4af37]/30 group-hover:text-[#d4af37]/60 transition-colors duration-500">
                           {role.stat}
                         </span>
                       </div>
-                      <h5 className="text-white text-sm font-medium tracking-wide mb-2">
+                      <h5 className="text-[var(--th-text)] text-sm font-medium tracking-wide mb-2">
                         {role.title}
                       </h5>
-                      <p className="text-white/25 text-xs font-light leading-relaxed">
+                      <p className="text-[var(--th-text-4)] text-xs font-light leading-relaxed">
                         {role.desc}
                       </p>
                     </div>
@@ -212,7 +212,7 @@ export default function AboutSection() {
             >
               <a
                 href="/about"
-                className="group inline-flex items-center gap-3 text-white/50 hover:text-white transition-colors duration-500"
+                className="group inline-flex items-center gap-3 text-[var(--th-text-3)] hover:text-[var(--th-text)] transition-colors duration-500"
                 data-cursor="pointer"
               >
                 <span className="text-sm uppercase tracking-[0.2em] font-light">

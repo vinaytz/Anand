@@ -17,7 +17,7 @@ export default function InviteSection() {
     <section
       ref={sectionRef}
       id="contact"
-      className="relative py-32 md:py-44 px-6 md:px-12 overflow-hidden bg-[#030303]"
+      className="relative py-32 md:py-44 px-6 md:px-12 overflow-hidden bg-[var(--th-bg)] transition-colors duration-300"
     >
       {/* Background decorations */}
       <div className="absolute inset-0 pointer-events-none">
@@ -26,7 +26,7 @@ export default function InviteSection() {
           className="absolute inset-0 opacity-[0.01]"
           style={{
             backgroundImage:
-              "linear-gradient(rgba(255,255,255,0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.05) 1px, transparent 1px)",
+              "linear-gradient(var(--th-grid) 1px, transparent 1px), linear-gradient(90deg, var(--th-grid) 1px, transparent 1px)",
             backgroundSize: "80px 80px",
           }}
         />
@@ -54,11 +54,11 @@ export default function InviteSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-100px" }}
               transition={{ delay: 0.1, duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-              className="text-4xl md:text-5xl lg:text-6xl font-serif text-white leading-[1.1] tracking-tight"
+              className="text-4xl md:text-5xl lg:text-6xl font-serif text-[var(--th-text)] leading-[1.1] tracking-tight"
             >
               Invite Dr. Anand
               <br />
-              <span className="text-white/25">for your next event.</span>
+              <span className="text-[var(--th-text-4)]">for your next event.</span>
             </motion.h2>
 
             <motion.p
@@ -66,7 +66,7 @@ export default function InviteSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-100px" }}
               transition={{ delay: 0.25, duration: 0.8 }}
-              className="text-white/30 text-lg leading-[1.8] font-light max-w-md"
+              className="text-[var(--th-text-3)] text-lg leading-[1.8] font-light max-w-md"
             >
               Whether for a university convocation, corporate leadership summit,
               or youth forum — a presence that shifts perspectives.
@@ -81,23 +81,23 @@ export default function InviteSection() {
               className="space-y-0 pt-4"
             >
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-0">
-                <div className="group border-b border-r-0 sm:border-r border-white/[0.06] hover:border-white/[0.12] transition-colors duration-500">
+                <div className="group border-b border-r-0 sm:border-r border-[var(--th-border)] hover:border-[var(--th-border-hover)] transition-colors duration-500">
                   <input
                     type="text"
                     placeholder="Your Name"
-                    className="w-full bg-transparent py-5 px-1 text-white text-sm tracking-wide placeholder:text-white/20 focus:outline-none focus:placeholder:text-white/30 transition-colors duration-500"
+                    className="w-full bg-transparent py-5 px-1 text-[var(--th-text)] text-sm tracking-wide placeholder:text-[var(--th-text-4)] focus:outline-none focus:placeholder:text-[var(--th-text-3)] transition-colors duration-500"
                   />
                 </div>
-                <div className="group border-b border-white/[0.06] hover:border-white/[0.12] transition-colors duration-500">
+                <div className="group border-b border-[var(--th-border)] hover:border-[var(--th-border-hover)] transition-colors duration-500">
                   <input
                     type="email"
                     placeholder="Email Address"
-                    className="w-full bg-transparent py-5 px-1 sm:pl-5 text-white text-sm tracking-wide placeholder:text-white/20 focus:outline-none focus:placeholder:text-white/30 transition-colors duration-500"
+                    className="w-full bg-transparent py-5 px-1 sm:pl-5 text-[var(--th-text)] text-sm tracking-wide placeholder:text-[var(--th-text-4)] focus:outline-none focus:placeholder:text-[var(--th-text-3)] transition-colors duration-500"
                   />
                 </div>
               </div>
-              <div className="group border-b border-white/[0.06] hover:border-white/[0.12] transition-colors duration-500">
-                <select className="w-full bg-transparent py-5 px-1 text-white/20 text-sm tracking-wide focus:outline-none focus:text-white/40 transition-colors duration-500 [&>option]:bg-[#0a0a0a] [&>option]:text-white">
+              <div className="group border-b border-[var(--th-border)] hover:border-[var(--th-border-hover)] transition-colors duration-500">
+                <select className="w-full bg-transparent py-5 px-1 text-[var(--th-text-4)] text-sm tracking-wide focus:outline-none focus:text-[var(--th-text-3)] transition-colors duration-500 [&>option]:bg-[var(--th-card)] [&>option]:text-[var(--th-text)]">
                   <option>Event Type</option>
                   <option>Keynote Speech</option>
                   <option>Workshop</option>
@@ -105,11 +105,11 @@ export default function InviteSection() {
                   <option>Panel Discussion</option>
                 </select>
               </div>
-              <div className="group border-b border-white/[0.06] hover:border-white/[0.12] transition-colors duration-500">
+              <div className="group border-b border-[var(--th-border)] hover:border-[var(--th-border-hover)] transition-colors duration-500">
                 <textarea
                   placeholder="Tell us about your event..."
                   rows={3}
-                  className="w-full bg-transparent py-5 px-1 text-white text-sm tracking-wide placeholder:text-white/20 focus:outline-none focus:placeholder:text-white/30 transition-colors duration-500 resize-none"
+                  className="w-full bg-transparent py-5 px-1 text-[var(--th-text)] text-sm tracking-wide placeholder:text-[var(--th-text-4)] focus:outline-none focus:placeholder:text-[var(--th-text-3)] transition-colors duration-500 resize-none"
                 />
               </div>
 
@@ -161,8 +161,8 @@ export default function InviteSection() {
                   className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-1000"
                 />
               </motion.div>
-              <div className="absolute inset-0 bg-gradient-to-t from-[#030303] via-transparent to-transparent opacity-50" />
-              <div className="absolute inset-0 bg-gradient-to-r from-[#030303]/30 to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-t from-[var(--th-bg)] via-transparent to-transparent opacity-50" />
+              <div className="absolute inset-0 bg-gradient-to-r from-[var(--th-bg-30)] to-transparent" />
             </div>
 
             {/* Decorative offset border */}
@@ -174,23 +174,23 @@ export default function InviteSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-50px" }}
               transition={{ delay: 0.7, duration: 0.6 }}
-              className="absolute bottom-8 -left-8 bg-[#080808] border border-white/[0.06] rounded-xl p-6 shadow-2xl"
+              className="absolute bottom-8 -left-8 bg-[var(--th-card)] border border-[var(--th-border)] rounded-xl p-6 shadow-2xl"
             >
               <div className="flex items-center gap-6">
                 <div className="text-center">
                   <span className="block text-2xl font-serif text-[#d4af37]">
                     50+
                   </span>
-                  <span className="text-[9px] text-white/30 uppercase tracking-wider">
+                  <span className="text-[9px] text-[var(--th-text-3)] uppercase tracking-wider">
                     Events
                   </span>
                 </div>
-                <div className="w-[1px] h-8 bg-white/[0.06]" />
+                <div className="w-[1px] h-8 bg-[var(--th-border)]" />
                 <div className="text-center">
                   <span className="block text-2xl font-serif text-[#d4af37]">
                     100K
                   </span>
-                  <span className="text-[9px] text-white/30 uppercase tracking-wider">
+                  <span className="text-[9px] text-[var(--th-text-3)] uppercase tracking-wider">
                     Impacted
                   </span>
                 </div>
@@ -201,7 +201,7 @@ export default function InviteSection() {
       </div>
 
       {/* Edge lines */}
-      <div className="absolute top-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-white/[0.04] to-transparent" />
+      <div className="absolute top-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-[var(--th-border-subtle)] to-transparent" />
     </section>
   );
 }

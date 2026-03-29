@@ -86,7 +86,7 @@ export default function EpicTimeline() {
   );
 
   return (
-    <section ref={containerRef} className="relative bg-[#030303]" style={{ height: `${milestones.length * 100}vh` }}>
+    <section ref={containerRef} className="relative bg-[var(--th-bg)] transition-colors duration-300" style={{ height: `${milestones.length * 100}vh` }}>
       {/* ── Sticky viewport ── */}
       <div className="sticky top-0 h-screen overflow-hidden">
         {/* ── Background ambient layer ── */}
@@ -97,7 +97,7 @@ export default function EpicTimeline() {
             className="absolute inset-0 opacity-[0.02]"
             style={{
               backgroundImage:
-                "linear-gradient(rgba(255,255,255,0.08) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.08) 1px, transparent 1px)",
+                "linear-gradient(var(--th-grid) 1px, transparent 1px), linear-gradient(90deg, var(--th-grid) 1px, transparent 1px)",
               backgroundSize: "80px 80px",
             }}
           />
@@ -128,7 +128,7 @@ export default function EpicTimeline() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 0.08, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="text-[60px] sm:text-[90px] md:text-[120px] lg:text-[180px] font-serif font-bold text-white leading-none block -mt-2 md:-mt-4 select-none"
+            className="text-[60px] sm:text-[90px] md:text-[120px] lg:text-[180px] font-serif font-bold text-[var(--th-text)] leading-none block -mt-2 md:-mt-4 select-none"
           >
             {milestones[activeIdx].year}
           </motion.span>
@@ -147,7 +147,7 @@ export default function EpicTimeline() {
         {/* ── Bottom: Progress system ── */}
         <div className="absolute bottom-0 left-0 right-0 z-30 px-4 md:px-12 pb-5 md:pb-8">
           {/* Progress track */}
-          <div className="relative h-[1px] bg-white/[0.06] mb-4 md:mb-6">
+          <div className="relative h-[1px] bg-[var(--th-border)] mb-4 md:mb-6">
             <motion.div
               className="absolute top-0 left-0 h-full bg-gradient-to-r from-[#d4af37] to-[#d4af37]/40"
               style={{ width: lineWidth }}
@@ -165,7 +165,7 @@ export default function EpicTimeline() {
                     className={`w-2 h-2 rounded-full transition-all duration-500 ${
                       idx <= activeIdx
                         ? "bg-[#d4af37] shadow-[0_0_12px_rgba(212,175,55,0.4)]"
-                        : "bg-white/10"
+                        : "bg-[var(--th-dot)]"
                     }`}
                   />
                 </div>
@@ -182,8 +182,8 @@ export default function EpicTimeline() {
                   idx === activeIdx
                     ? "text-[#d4af37]"
                     : idx <= activeIdx
-                    ? "text-white/30"
-                    : "text-white/10"
+                    ? "text-[var(--th-text-3)]"
+                    : "text-[var(--th-text-5)]"
                 }`}
               >
                 {m.year}
@@ -198,8 +198,8 @@ export default function EpicTimeline() {
           animate={{ opacity: activeIdx === 0 ? 0.4 : 0, y: activeIdx === 0 ? [0, 6, 0] : 0 }}
           transition={{ duration: 2, repeat: Infinity, repeatType: "loop" }}
         >
-          <span className="text-white/30 text-[9px] uppercase tracking-[0.4em]">Scroll</span>
-          <svg className="w-4 h-4 text-white/20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <span className="text-[var(--th-text-3)] text-[9px] uppercase tracking-[0.4em]">Scroll</span>
+          <svg className="w-4 h-4 text-[var(--th-text-4)]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
           </svg>
         </motion.div>
@@ -239,9 +239,9 @@ function MilestoneCard({
           className="w-full h-full object-cover"
         />
         {/* Multi-layer overlay */}
-        <div className="absolute inset-0 bg-[#030303]/80" />
-        <div className="absolute inset-0 bg-gradient-to-r from-[#030303] via-[#030303]/60 to-transparent" />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#030303] via-transparent to-[#030303]/40" />
+        <div className="absolute inset-0 bg-[var(--th-bg-80)]" />
+        <div className="absolute inset-0 bg-gradient-to-r from-[var(--th-bg)] via-[var(--th-bg-60)] to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[var(--th-bg)] via-transparent to-[var(--th-bg-40)]" />
       </motion.div>
 
       {/* ── Content layout ── */}
@@ -264,7 +264,7 @@ function MilestoneCard({
                   {m.era}
                 </span>
               </div>
-              <span className="text-white/20 text-xs font-mono">{m.year}</span>
+              <span className="text-[var(--th-text-4)] text-xs font-mono">{m.year}</span>
             </motion.div>
 
             {/* Title */}
@@ -274,7 +274,7 @@ function MilestoneCard({
                 y: isActive ? 0 : 60,
               }}
               transition={{ duration: 0.9, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
-              className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-serif text-white leading-[1.08] tracking-tight whitespace-pre-line"
+              className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-serif text-[var(--th-text)] leading-[1.08] tracking-tight whitespace-pre-line"
             >
               {m.title}
             </motion.h3>
@@ -286,7 +286,7 @@ function MilestoneCard({
                 y: isActive ? 0 : 40,
               }}
               transition={{ duration: 0.8, delay: 0.35, ease: [0.16, 1, 0.3, 1] }}
-              className="text-white/35 text-sm sm:text-base md:text-lg leading-[1.8] md:leading-[1.9] font-light max-w-lg"
+              className="text-[var(--th-text-3)] text-sm sm:text-base md:text-lg leading-[1.8] md:leading-[1.9] font-light max-w-lg"
             >
               {m.body}
             </motion.p>
@@ -302,12 +302,12 @@ function MilestoneCard({
             >
               <div className="relative">
                 <div className="absolute -inset-3 bg-[#d4af37]/[0.06] rounded-xl blur-xl" />
-                <div className="relative bg-[#080808] border border-[#d4af37]/20 rounded-xl px-4 py-3 md:px-6 md:py-4 flex items-center gap-3 md:gap-4">
+                <div className="relative bg-[var(--th-card)] border border-[#d4af37]/20 rounded-xl px-4 py-3 md:px-6 md:py-4 flex items-center gap-3 md:gap-4">
                   <span className="text-2xl sm:text-3xl md:text-4xl font-serif text-[#d4af37]">
                     {m.stat.value}
                   </span>
-                  <div className="w-[1px] h-6 md:h-8 bg-white/[0.06]" />
-                  <span className="text-[9px] md:text-[10px] text-white/30 uppercase tracking-[0.3em]">
+                  <div className="w-[1px] h-6 md:h-8 bg-[var(--th-border)]" />
+                  <span className="text-[9px] md:text-[10px] text-[var(--th-text-3)] uppercase tracking-[0.3em]">
                     {m.stat.label}
                   </span>
                 </div>
@@ -328,14 +328,14 @@ function MilestoneCard({
                 alt={m.title}
                 className="w-full h-full object-cover"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#030303]/70 via-transparent to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-t from-[var(--th-bg-70)] via-transparent to-transparent" />
               <div className="absolute bottom-3 left-3 flex items-center gap-2">
                 <div className="w-7 h-7 bg-[#d4af37] rounded-full flex items-center justify-center">
                   <span className="text-black text-[10px] font-bold">
                     {String(idx + 1).padStart(2, "0")}
                   </span>
                 </div>
-                <span className="text-white/40 text-[10px] font-mono">{m.year}</span>
+                <span className="text-[var(--th-text-3)] text-[10px] font-mono">{m.year}</span>
               </div>
             </motion.div>
           </div>
@@ -365,11 +365,11 @@ function MilestoneCard({
                   alt={m.title}
                   className="w-full h-full object-cover"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#030303]/60 via-transparent to-transparent" />
-                <div className="absolute inset-0 bg-gradient-to-r from-[#030303]/30 to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-[var(--th-bg-60)] via-transparent to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-r from-[var(--th-bg-30)] to-transparent" />
 
                 {/* Year watermark on image */}
-                <span className="absolute bottom-4 right-6 text-[80px] md:text-[120px] font-serif font-bold text-white/[0.04] leading-none select-none pointer-events-none">
+                <span className="absolute bottom-4 right-6 text-[80px] md:text-[120px] font-serif font-bold text-[var(--th-watermark)] leading-none select-none pointer-events-none">
                   {m.year}
                 </span>
               </div>
@@ -387,7 +387,7 @@ function MilestoneCard({
 
       {/* ── Vertical divider between cards (decorative) ── */}
       {idx < milestones.length - 1 && (
-        <div className="absolute right-0 top-1/4 bottom-1/4 w-[1px] bg-gradient-to-b from-transparent via-white/[0.04] to-transparent" />
+        <div className="absolute right-0 top-1/4 bottom-1/4 w-[1px] bg-gradient-to-b from-transparent via-[var(--th-border-subtle)] to-transparent" />
       )}
     </div>
   );

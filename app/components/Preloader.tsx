@@ -77,7 +77,7 @@ export default function Preloader() {
   return (
     <div
       ref={preloaderRef}
-      className="fixed inset-0 z-[9999] flex items-center justify-center bg-[#030303]"
+      className="fixed inset-0 z-[9999] flex items-center justify-center bg-[var(--th-bg)] transition-colors duration-300"
     >
       {/* Subtle radial gradient */}
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_rgba(212,175,55,0.03)_0%,_transparent_70%)]" />
@@ -88,7 +88,7 @@ export default function Preloader() {
           {nameChars.map((char, i) => (
             <span
               key={i}
-              className="preloader-char inline-block font-serif text-white text-4xl sm:text-5xl md:text-7xl lg:text-8xl tracking-[0.06em] will-change-transform"
+              className="preloader-char inline-block font-serif text-[var(--th-text)] text-4xl sm:text-5xl md:text-7xl lg:text-8xl tracking-[0.06em] will-change-transform"
               style={{
                 transformOrigin: "bottom center",
                 perspective: "600px",
@@ -109,10 +109,10 @@ export default function Preloader() {
       </div>
 
       {/* Corner marks */}
-      <div className="absolute top-6 left-6 w-8 h-8 border-l border-t border-white/10" />
-      <div className="absolute top-6 right-6 w-8 h-8 border-r border-t border-white/10" />
-      <div className="absolute bottom-6 left-6 w-8 h-8 border-l border-b border-white/10" />
-      <div className="absolute bottom-6 right-6 w-8 h-8 border-r border-b border-white/10" />
+      <div className="absolute top-6 left-6 w-8 h-8 border-l border-t border-[var(--th-border)]" />
+      <div className="absolute top-6 right-6 w-8 h-8 border-r border-t border-[var(--th-border)]" />
+      <div className="absolute bottom-6 left-6 w-8 h-8 border-l border-b border-[var(--th-border)]" />
+      <div className="absolute bottom-6 right-6 w-8 h-8 border-r border-b border-[var(--th-border)]" />
     </div>
   );
 }

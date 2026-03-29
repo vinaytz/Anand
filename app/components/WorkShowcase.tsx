@@ -36,7 +36,7 @@ export default function WorkShowcase() {
   const parallaxY = useTransform(scrollYProgress, [0, 1], ["0%", "15%"]);
 
   return (
-    <section ref={ref} id="work" className="relative py-32 lg:py-44 px-6 md:px-12 bg-[#030303] overflow-hidden">
+    <section ref={ref} id="work" className="relative py-32 lg:py-44 px-6 md:px-12 bg-[var(--th-bg)] overflow-hidden transition-colors duration-300">
       {/* Background */}
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-[#d4af37]/[0.01] rounded-full blur-[150px]" />
@@ -58,11 +58,11 @@ export default function WorkShowcase() {
             </span>
           </div>
           <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6">
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-serif text-white tracking-tight">
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-serif text-[var(--th-text)] tracking-tight">
               Published Works &<br />
-              <span className="text-white/25">Contributions</span>
+              <span className="text-[var(--th-text-4)]">Contributions</span>
             </h2>
-            <p className="text-white/30 text-sm font-light leading-relaxed max-w-sm lg:text-right">
+            <p className="text-[var(--th-text-3)] text-sm font-light leading-relaxed max-w-sm lg:text-right">
               Three best-selling books that have shaped how thousands think about leadership, resilience, and legacy.
             </p>
           </div>
@@ -83,7 +83,7 @@ export default function WorkShowcase() {
               }}
               className="group relative"
             >
-              <div className="relative rounded-2xl bg-[#080808] border border-white/[0.06] hover:border-[#d4af37]/20 transition-all duration-700 overflow-hidden">
+              <div className="relative rounded-2xl bg-[var(--th-card)] border border-[var(--th-border)] hover:border-[#d4af37]/20 transition-all duration-700 overflow-hidden">
                 {/* Hover glow */}
                 <div className="absolute inset-0 bg-gradient-to-b from-[#d4af37]/[0.03] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
 
@@ -92,7 +92,7 @@ export default function WorkShowcase() {
                   <div className="relative w-40 md:w-44 aspect-[2/3] [perspective:800px]">
                     <div className="relative w-full h-full transition-transform duration-700 [transform-style:preserve-3d] group-hover:[transform:rotateY(-5deg)]">
                       {/* Front cover */}
-                      <div className="absolute inset-0 bg-gradient-to-br from-[#151210] to-[#0a0908] rounded-sm shadow-2xl shadow-black/60 border border-white/[0.04]">
+                      <div className="absolute inset-0 bg-gradient-to-br from-[var(--th-book-from)] to-[var(--th-book-to)] rounded-sm shadow-2xl border border-[var(--th-border-subtle)]">
                         <div className="h-full w-full p-5 flex flex-col justify-between">
                           <span className="text-[7px] text-[#d4af37]/40 uppercase tracking-[0.3em] text-center">
                             Dr. Anand K Shukla
@@ -104,14 +104,14 @@ export default function WorkShowcase() {
                             </span>
                             <div className="w-12 h-[0.5px] bg-[#d4af37]/30 mx-auto" />
                           </div>
-                          <span className="text-[6px] text-white/15 uppercase tracking-[0.2em] text-center">
+                          <span className="text-[6px] text-[var(--th-text-5)] uppercase tracking-[0.2em] text-center">
                             {book.tag}
                           </span>
                         </div>
                       </div>
                       {/* Page edges */}
-                      <div className="absolute -right-[3px] top-[3px] bottom-[3px] w-[3px] bg-gradient-to-r from-[#d4cfc5] to-[#c5c0b5] rounded-r-[1px]" />
-                      <div className="absolute -right-[5px] top-[6px] bottom-[6px] w-[2px] bg-[#b8b3a8] rounded-r-[1px]" />
+                      <div className="absolute -right-[3px] top-[3px] bottom-[3px] w-[3px] bg-gradient-to-r from-[var(--th-book-pages)] to-[var(--th-book-pages2)] rounded-r-[1px]" />
+                      <div className="absolute -right-[5px] top-[6px] bottom-[6px] w-[2px] bg-[var(--th-book-pages2)] rounded-r-[1px]" />
                       {/* Spine */}
                       <div className="absolute -left-[2px] top-0 bottom-0 w-[3px] bg-gradient-to-r from-black/50 to-transparent rounded-l" />
                     </div>
@@ -126,15 +126,15 @@ export default function WorkShowcase() {
                       {book.subtitle}
                     </span>
                   </div>
-                  <h3 className="text-xl font-serif text-white tracking-tight whitespace-pre-line leading-tight">
+                  <h3 className="text-xl font-serif text-[var(--th-text)] tracking-tight whitespace-pre-line leading-tight">
                     {book.title}
                   </h3>
-                  <p className="text-white/25 text-sm font-light leading-relaxed">
+                  <p className="text-[var(--th-text-4)] text-sm font-light leading-relaxed">
                     {book.description}
                   </p>
                   <a
                     href="#"
-                    className="inline-flex items-center gap-2 text-white/40 text-[11px] uppercase tracking-[0.15em] hover:text-[#d4af37] transition-colors duration-500 group/link pt-2"
+                    className="inline-flex items-center gap-2 text-[var(--th-text-3)] text-[11px] uppercase tracking-[0.15em] hover:text-[#d4af37] transition-colors duration-500 group/link pt-2"
                     data-cursor="pointer"
                   >
                     Get Your Copy
@@ -154,7 +154,7 @@ export default function WorkShowcase() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-50px" }}
             transition={{ delay: 0.6, duration: 0.8 }}
-            className="group relative rounded-2xl overflow-hidden border border-white/[0.05] min-h-[380px]"
+            className="group relative rounded-2xl overflow-hidden border border-[var(--th-border)] min-h-[380px]"
           >
             <motion.div className="absolute inset-[-15%]" style={{ y: parallaxY }}>
               <img
@@ -163,7 +163,7 @@ export default function WorkShowcase() {
                 className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-1000 scale-105 group-hover:scale-100"
               />
             </motion.div>
-            <div className="absolute inset-0 bg-gradient-to-t from-[#030303] via-[#030303]/60 to-transparent" />
+            <div className="absolute inset-0 bg-gradient-to-t from-[var(--th-bg)] via-[var(--th-bg-60)] to-transparent" />
 
             <div className="absolute bottom-0 left-0 right-0 p-8 md:p-10 z-10">
               <div className="flex items-center gap-3 mb-4">
@@ -172,15 +172,15 @@ export default function WorkShowcase() {
                   Keynote Speaker
                 </span>
               </div>
-              <h3 className="text-2xl md:text-3xl font-serif text-white mb-3 tracking-tight">
+              <h3 className="text-2xl md:text-3xl font-serif text-[var(--th-text)] mb-3 tracking-tight">
                 Inspiring Global Audiences
               </h3>
-              <p className="text-white/30 text-sm font-light mb-6 max-w-md leading-relaxed">
+              <p className="text-[var(--th-text-3)] text-sm font-light mb-6 max-w-md leading-relaxed">
                 From IITs to international forums — delivering messages that transform perspectives and ignite action.
               </p>
               <a
                 href="/speaking"
-                className="inline-flex items-center gap-2 text-[10px] uppercase tracking-[0.2em] text-white/40 border border-white/10 px-5 py-3 rounded-full hover:border-[#d4af37]/30 hover:text-[#d4af37] transition-all duration-500"
+                className="inline-flex items-center gap-2 text-[10px] uppercase tracking-[0.2em] text-[var(--th-text-3)] border border-[var(--th-border-hover)] px-5 py-3 rounded-full hover:border-[#d4af37]/30 hover:text-[#d4af37] transition-all duration-500"
                 data-cursor="pointer"
               >
                 View Speaking Topics
@@ -195,7 +195,7 @@ export default function WorkShowcase() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-50px" }}
             transition={{ delay: 0.7, duration: 0.8 }}
-            className="group relative rounded-2xl bg-[#080808] border border-white/[0.06] hover:border-[#d4af37]/20 transition-all duration-700 overflow-hidden p-8 md:p-10 flex flex-col justify-between min-h-[380px]"
+            className="group relative rounded-2xl bg-[var(--th-card)] border border-[var(--th-border)] hover:border-[#d4af37]/20 transition-all duration-700 overflow-hidden p-8 md:p-10 flex flex-col justify-between min-h-[380px]"
           >
             {/* Hover glow */}
             <div className="absolute inset-0 bg-gradient-to-br from-[#d4af37]/[0.02] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
@@ -207,33 +207,33 @@ export default function WorkShowcase() {
                   Academic Leadership
                 </span>
               </div>
-              <h3 className="text-2xl md:text-3xl font-serif text-white tracking-tight">
+              <h3 className="text-2xl md:text-3xl font-serif text-[var(--th-text)] tracking-tight">
                 Deanship &amp; Curriculum Innovation
               </h3>
-              <p className="text-white/25 font-light text-sm leading-[1.8] max-w-md">
+              <p className="text-[var(--th-text-4)] font-light text-sm leading-[1.8] max-w-md">
                 As Dean of Academics, Dr. Anand leads curriculum innovation and student development strategies
                 impacting thousands of futures annually.
               </p>
             </div>
 
-            <div className="relative z-10 flex gap-10 pt-8 border-t border-white/[0.04] mt-8">
+            <div className="relative z-10 flex gap-10 pt-8 border-t border-[var(--th-border-subtle)] mt-8">
               <div>
                 <span className="block text-4xl md:text-5xl font-serif text-[#d4af37]">20+</span>
-                <span className="text-[10px] text-white/20 uppercase tracking-[0.2em] mt-1 block">
+                <span className="text-[10px] text-[var(--th-text-4)] uppercase tracking-[0.2em] mt-1 block">
                   Years
                 </span>
               </div>
-              <div className="w-[1px] h-12 bg-white/[0.06] self-center" />
+              <div className="w-[1px] h-12 bg-[var(--th-border)] self-center" />
               <div>
                 <span className="block text-4xl md:text-5xl font-serif text-[#d4af37]">5K+</span>
-                <span className="text-[10px] text-white/20 uppercase tracking-[0.2em] mt-1 block">
+                <span className="text-[10px] text-[var(--th-text-4)] uppercase tracking-[0.2em] mt-1 block">
                   Students
                 </span>
               </div>
-              <div className="w-[1px] h-12 bg-white/[0.06] self-center" />
+              <div className="w-[1px] h-12 bg-[var(--th-border)] self-center" />
               <div>
                 <span className="block text-4xl md:text-5xl font-serif text-[#d4af37]">12</span>
-                <span className="text-[10px] text-white/20 uppercase tracking-[0.2em] mt-1 block">
+                <span className="text-[10px] text-[var(--th-text-4)] uppercase tracking-[0.2em] mt-1 block">
                   Programs
                 </span>
               </div>
@@ -243,7 +243,7 @@ export default function WorkShowcase() {
       </div>
 
       {/* Bottom edge */}
-      <div className="absolute bottom-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-white/[0.05] to-transparent" />
+      <div className="absolute bottom-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-[var(--th-border-subtle)] to-transparent" />
     </section>
   );
 }

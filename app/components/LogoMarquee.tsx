@@ -45,10 +45,10 @@ export default function LogoMarquee() {
   return (
     <section
       ref={sectionRef}
-      className="relative py-10 lg:py-14 bg-[#050505] border-y border-white/[0.04] overflow-hidden"
+      className="relative py-10 lg:py-14 bg-[var(--th-bg)] border-y border-[var(--th-border-subtle)] overflow-hidden transition-colors duration-300"
     >
       <div className="text-center mb-8">
-        <span className="text-gray-600 text-[9px] tracking-[0.5em] uppercase font-medium">
+        <span className="text-[var(--th-text-3)] text-[9px] tracking-[0.5em] uppercase font-medium">
           Featured & Trusted By
         </span>
       </div>
@@ -56,14 +56,14 @@ export default function LogoMarquee() {
       {/* Marquee track */}
       <div className="relative flex overflow-hidden">
         {/* Fade edges */}
-        <div className="absolute left-0 top-0 bottom-0 w-32 bg-gradient-to-r from-[#050505] to-transparent z-10 pointer-events-none" />
-        <div className="absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-[#050505] to-transparent z-10 pointer-events-none" />
+        <div className="absolute left-0 top-0 bottom-0 w-32 bg-gradient-to-r from-[var(--th-bg)] to-transparent z-10 pointer-events-none" />
+        <div className="absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-[var(--th-bg)] to-transparent z-10 pointer-events-none" />
 
         <div className="animate-scroll flex items-center gap-16 lg:gap-24 whitespace-nowrap">
           {items.map((name, i) => (
             <span
               key={i}
-              className="text-lg lg:text-xl font-serif text-white/20 hover:text-gold-400/60 transition-colors duration-500 cursor-default select-none"
+              className="text-lg lg:text-xl font-serif text-[var(--th-text-4)] hover:text-gold-400/60 transition-colors duration-500 cursor-default select-none"
             >
               {name}
             </span>

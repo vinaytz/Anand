@@ -14,7 +14,7 @@ import Footer from "./components/Footer";
 
 export default function Home() {
   return (
-    <main className="relative min-h-screen bg-[#030303] overflow-x-hidden">
+    <main className="relative min-h-screen bg-[var(--th-bg)] overflow-x-hidden transition-colors duration-300">
       {/* Global noise texture */}
       <div className="fixed inset-0 z-[100] pointer-events-none opacity-[0.018] mix-blend-overlay bg-noise" />
 

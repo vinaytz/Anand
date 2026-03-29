@@ -98,7 +98,7 @@ export function Testimonials() {
   return (
     <section
       ref={ref}
-      className="relative py-28 md:py-40 bg-[#030303] overflow-hidden"
+      className="relative py-28 md:py-40 bg-[var(--th-bg)] overflow-hidden transition-colors duration-300"
     >
       {/* Massive decorative quotation mark */}
       <motion.div
@@ -137,26 +137,26 @@ export function Testimonials() {
             <span className="text-[#d4af37] text-[10px] uppercase tracking-[0.5em] block mb-3">
               Testimonials
             </span>
-            <h2 className="text-4xl md:text-5xl lg:text-[3.75rem] font-serif text-white tracking-tight">
+            <h2 className="text-4xl md:text-5xl lg:text-[3.75rem] font-serif text-[var(--th-text)] tracking-tight">
               Voices of Impact
             </h2>
           </div>
 
           {/* Counter + Arrows */}
           <div className="hidden md:flex items-center gap-6">
-            <span className="text-white/60 text-sm font-light tabular-nums tracking-wider">
-              <span className="text-white font-medium">{pad(active + 1)}</span>
+            <span className="text-[var(--th-text-2)] text-sm font-light tabular-nums tracking-wider">
+              <span className="text-[var(--th-text)] font-medium">{pad(active + 1)}</span>
               <span className="mx-2 text-[#d4af37]">/</span>
               {pad(testimonials.length)}
             </span>
             <div className="flex gap-2">
               <button
                 onClick={prev}
-                className="group w-11 h-11 rounded-full border border-white/10 hover:border-[#d4af37]/50 flex items-center justify-center transition-all duration-400"
+                className="group w-11 h-11 rounded-full border border-[var(--th-border-hover)] hover:border-[#d4af37]/50 flex items-center justify-center transition-all duration-400"
                 data-cursor="pointer"
               >
                 <svg
-                  className="w-4 h-4 text-white/40 group-hover:text-[#d4af37] transition-colors"
+                  className="w-4 h-4 text-[var(--th-text-3)] group-hover:text-[#d4af37] transition-colors"
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
@@ -171,11 +171,11 @@ export function Testimonials() {
               </button>
               <button
                 onClick={next}
-                className="group w-11 h-11 rounded-full border border-white/10 hover:border-[#d4af37]/50 flex items-center justify-center transition-all duration-400"
+                className="group w-11 h-11 rounded-full border border-[var(--th-border-hover)] hover:border-[#d4af37]/50 flex items-center justify-center transition-all duration-400"
                 data-cursor="pointer"
               >
                 <svg
-                  className="w-4 h-4 text-white/40 group-hover:text-[#d4af37] transition-colors"
+                  className="w-4 h-4 text-[var(--th-text-3)] group-hover:text-[#d4af37] transition-colors"
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
@@ -224,7 +224,7 @@ export function Testimonials() {
                 className="space-y-10"
               >
                 {/* The quote */}
-                <p className="text-2xl md:text-3xl lg:text-[2.5rem] font-serif text-white/90 leading-[1.35] tracking-tight">
+                <p className="text-2xl md:text-3xl lg:text-[2.5rem] font-serif text-[var(--th-text)] leading-[1.35] tracking-tight">
                   &ldquo;{testimonials[active].quote}&rdquo;
                 </p>
 
@@ -233,10 +233,10 @@ export function Testimonials() {
                   {/* Gold accent bar */}
                   <div className="w-12 h-[2px] bg-gradient-to-r from-[#d4af37] to-[#d4af37]/20" />
                   <div>
-                    <p className="text-white text-sm font-semibold uppercase tracking-[0.2em]">
+                    <p className="text-[var(--th-text)] text-sm font-semibold uppercase tracking-[0.2em]">
                       {testimonials[active].name}
                     </p>
-                    <p className="text-white/35 text-xs tracking-wide mt-1">
+                    <p className="text-[var(--th-text-3)] text-xs tracking-wide mt-1">
                       {testimonials[active].title},{" "}
                       <span className="text-[#d4af37]/50">
                         {testimonials[active].org}
@@ -264,7 +264,7 @@ export function Testimonials() {
                   className={`lg:hidden block w-2.5 h-2.5 rounded-full transition-all duration-500 ${
                     idx === active
                       ? "bg-[#d4af37] scale-110"
-                      : "bg-white/10 hover:bg-white/25"
+                      : "bg-[var(--th-border-hover)] hover:bg-[var(--th-text-3)]"
                   }`}
                 />
                 {/* Desktop: name list */}
@@ -272,8 +272,8 @@ export function Testimonials() {
                   <span
                     className={`text-[13px] tracking-wide transition-all duration-500 block ${
                       idx === active
-                        ? "text-white font-medium"
-                        : "text-white/20 hover:text-white/40 font-light"
+                        ? "text-[var(--th-text)] font-medium"
+                        : "text-[var(--th-text-4)] hover:text-[var(--th-text-3)] font-light"
                     }`}
                   >
                     {t.name}
@@ -295,7 +295,7 @@ export function Testimonials() {
 
         {/* Progress bar */}
         <div className="mt-16 md:mt-20">
-          <div className="h-[1px] bg-white/[0.06] relative overflow-hidden">
+          <div className="h-[1px] bg-[var(--th-border)] relative overflow-hidden">
             <motion.div
               className="absolute top-0 left-0 h-full bg-gradient-to-r from-[#d4af37]/80 to-[#d4af37]/30"
               style={{ width: `${progress * 100}%` }}
@@ -308,10 +308,10 @@ export function Testimonials() {
         <div className="flex md:hidden justify-center gap-4 mt-8">
           <button
             onClick={prev}
-            className="group w-10 h-10 rounded-full border border-white/10 hover:border-[#d4af37]/50 flex items-center justify-center transition-all"
+            className="group w-10 h-10 rounded-full border border-[var(--th-border-hover)] hover:border-[#d4af37]/50 flex items-center justify-center transition-all"
           >
             <svg
-              className="w-3.5 h-3.5 text-white/40 group-hover:text-[#d4af37] transition-colors"
+              className="w-3.5 h-3.5 text-[var(--th-text-3)] group-hover:text-[#d4af37] transition-colors"
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24"
@@ -324,15 +324,15 @@ export function Testimonials() {
               />
             </svg>
           </button>
-          <span className="text-white/40 text-xs self-center tabular-nums">
+          <span className="text-[var(--th-text-3)] text-xs self-center tabular-nums">
             {pad(active + 1)} / {pad(testimonials.length)}
           </span>
           <button
             onClick={next}
-            className="group w-10 h-10 rounded-full border border-white/10 hover:border-[#d4af37]/50 flex items-center justify-center transition-all"
+            className="group w-10 h-10 rounded-full border border-[var(--th-border-hover)] hover:border-[#d4af37]/50 flex items-center justify-center transition-all"
           >
             <svg
-              className="w-3.5 h-3.5 text-white/40 group-hover:text-[#d4af37] transition-colors"
+              className="w-3.5 h-3.5 text-[var(--th-text-3)] group-hover:text-[#d4af37] transition-colors"
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24"
@@ -349,8 +349,8 @@ export function Testimonials() {
       </div>
 
       {/* Edge lines */}
-      <div className="absolute top-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-white/[0.04] to-transparent" />
-      <div className="absolute bottom-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-white/[0.04] to-transparent" />
+      <div className="absolute top-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-[var(--th-border-subtle)] to-transparent" />
+      <div className="absolute bottom-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-[var(--th-border-subtle)] to-transparent" />
     </section>
   );
 }

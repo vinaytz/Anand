@@ -80,13 +80,13 @@ export default function CustomCursor() {
             opacity: visible ? 1 : 0,
           }}
           transition={{ duration: 0.3, ease: "easeOut" }}
-          className="rounded-full bg-white flex items-center justify-center"
+          className="rounded-full bg-[var(--th-cursor)] flex items-center justify-center"
         >
           {text && (
             <motion.span
               initial={{ opacity: 0, scale: 0.8 }}
               animate={{ opacity: 1, scale: 1 }}
-              className="text-black text-[10px] font-bold uppercase tracking-wider"
+              className="text-[var(--th-cursor-text)] text-[10px] font-bold uppercase tracking-wider"
             >
               {text}
             </motion.span>

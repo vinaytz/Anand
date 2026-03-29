@@ -139,7 +139,7 @@ export default function Hero() {
   return (
     <section
       ref={sectionRef}
-      className="relative h-screen min-h-[700px] overflow-hidden bg-black"
+      className="relative h-screen min-h-[700px] overflow-hidden bg-[var(--th-bg)] transition-colors duration-300"
     >
       {/* ═══════════════════════════════════════
           IMAGE — Full bleed, parallax, mouse-reactive
@@ -175,7 +175,7 @@ export default function Hero() {
           className="absolute inset-0"
           style={{
             background:
-              "linear-gradient(to right, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.88) 25%, rgba(0,0,0,0.6) 45%, rgba(0,0,0,0.15) 65%, transparent 80%)",
+              "linear-gradient(to right, var(--th-bg-95) 0%, var(--th-bg-88) 25%, var(--th-bg-60) 45%, var(--th-bg-15) 65%, transparent 80%)",
           }}
         />
         {/* Floor anchor */}
@@ -183,7 +183,7 @@ export default function Hero() {
           className="absolute inset-0"
           style={{
             background:
-              "linear-gradient(to top, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.3) 25%, transparent 50%)",
+              "linear-gradient(to top, var(--th-bg-90) 0%, var(--th-bg-30) 25%, transparent 50%)",
           }}
         />
         {/* Ceiling dim for nav */}
@@ -191,7 +191,7 @@ export default function Hero() {
           className="absolute inset-0"
           style={{
             background:
-              "linear-gradient(to bottom, rgba(0,0,0,0.75) 0%, rgba(0,0,0,0.4) 10%, transparent 22%)",
+              "linear-gradient(to bottom, var(--th-bg-75) 0%, var(--th-bg-40) 10%, transparent 22%)",
           }}
         />
       </div>
@@ -211,8 +211,8 @@ export default function Hero() {
         className="absolute inset-0 z-[6] pointer-events-none"
         style={{
           backgroundImage: `
-            linear-gradient(to right, rgba(255,255,255,0.07) 1px, transparent 1px),
-            linear-gradient(to bottom, rgba(255,255,255,0.07) 1px, transparent 1px)
+            linear-gradient(to right, var(--th-grid) 1px, transparent 1px),
+            linear-gradient(to bottom, var(--th-grid) 1px, transparent 1px)
           `,
           backgroundSize: "48px 48px",
           WebkitMaskImage:
@@ -226,8 +226,8 @@ export default function Hero() {
         className="absolute inset-0 z-[6] pointer-events-none"
         style={{
           backgroundImage: `
-            linear-gradient(to right, rgba(255,255,255,0.05) 1px, transparent 1px),
-            linear-gradient(to bottom, rgba(255,255,255,0.05) 1px, transparent 1px)
+            linear-gradient(to right, var(--th-grid) 1px, transparent 1px),
+            linear-gradient(to bottom, var(--th-grid) 1px, transparent 1px)
           `,
           backgroundSize: "48px 48px",
           WebkitMaskImage:
@@ -245,7 +245,7 @@ export default function Hero() {
          ═══════════════════════════════════════ */}
       <nav className="absolute top-0 left-0 right-0 z-[20] px-6 md:px-10 lg:px-16 xl:px-20 py-6 md:py-8">
         <div className="flex items-center justify-between">
-          <a href="/" className="font-serif text-xl text-white tracking-tight font-bold" data-cursor="pointer">
+          <a href="/" className="font-serif text-xl text-[var(--th-text)] tracking-tight font-bold" data-cursor="pointer">
             AKS<span className="text-[#d4af37]">.</span>
           </a>
           <div className="hidden md:flex items-center gap-8 lg:gap-10">
@@ -253,7 +253,7 @@ export default function Hero() {
               <a
                 key={l}
                 href={`/${l.toLowerCase()}`}
-                className="text-[10px] uppercase tracking-[0.2em] text-white/60 hover:text-white transition-colors duration-500 relative group"
+                className="text-[10px] uppercase tracking-[0.2em] text-[var(--th-text-2)] hover:text-[var(--th-text)] transition-colors duration-500 relative group"
                 data-cursor="pointer"
               >
                 {l}
@@ -263,6 +263,7 @@ export default function Hero() {
             <a
               href="/#contact"
               className="ml-2 px-5 py-2 border border-[#d4af37]/40 text-[10px] uppercase tracking-[0.2em] text-[#d4af37] hover:bg-[#d4af37]/10 transition-all duration-500 rounded-full"
+
               data-cursor="pointer"
             >
               Contact
@@ -284,7 +285,7 @@ export default function Hero() {
             {firstName.map((ch, i) => (
               <span
                 key={`f${i}`}
-                className="h-char-first inline-block font-serif text-white text-[18vw] md:text-[14vw] lg:text-[11vw] leading-[0.85] tracking-[-0.04em] font-bold select-none will-change-transform"
+                className="h-char-first inline-block font-serif text-[var(--th-text)] text-[18vw] md:text-[14vw] lg:text-[11vw] leading-[0.85] tracking-[-0.04em] font-bold select-none will-change-transform"
                 style={{ transformOrigin: "bottom center" }}
               >
                 {ch}
@@ -303,7 +304,7 @@ export default function Hero() {
                 className="h-char-last inline-block font-serif text-transparent text-[18vw] md:text-[14vw] lg:text-[11vw] leading-[0.85] tracking-[-0.04em] font-bold select-none will-change-transform"
                 style={{
                   transformOrigin: "bottom center",
-                  WebkitTextStroke: "2px rgba(255,255,255,0.35)",
+                  WebkitTextStroke: "2px var(--th-text-3)",
                 }}
               >
                 {ch}
@@ -317,7 +318,7 @@ export default function Hero() {
 
         {/* Sub-line + CTA */}
         <div className="flex flex-col md:flex-row md:items-center gap-4 md:gap-8">
-          <p className="h-fade text-white/30 text-[10px] md:text-xs uppercase tracking-[0.35em] font-light">
+          <p className="h-fade text-[var(--th-text-3)] text-[10px] md:text-xs uppercase tracking-[0.35em] font-light">
             Speaker &bull; Author &bull; Thought Leader
           </p>
 
@@ -343,8 +344,8 @@ export default function Hero() {
               href="/about"
               className="group relative inline-flex items-center px-5 py-3"
             >
-              <span className="absolute inset-0 border border-white/8 rounded-full group-hover:border-white/20 transition-colors duration-500" />
-              <span className="relative text-[10px] uppercase tracking-[0.2em] text-white/30 group-hover:text-white transition-colors duration-500">
+              <span className="absolute inset-0 border border-[var(--th-border)] rounded-full group-hover:border-[var(--th-border-hover)] transition-colors duration-500" />
+              <span className="relative text-[10px] uppercase tracking-[0.2em] text-[var(--th-text-3)] group-hover:text-[var(--th-text)] transition-colors duration-500">
                 Explore
               </span>
             </MagneticButton>
@@ -369,7 +370,7 @@ export default function Hero() {
       {/* ═══════════════════════════════════════
           VIGNETTE
          ═══════════════════════════════════════ */}
-      <div className="absolute inset-0 pointer-events-none shadow-[inset_0_0_250px_rgba(0,0,0,0.7)] z-[5]" />
+      <div className="absolute inset-0 pointer-events-none shadow-[inset_0_0_250px_var(--th-bg-60)] z-[5]" />
     </section>
   );
 }

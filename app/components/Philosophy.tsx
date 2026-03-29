@@ -40,7 +40,7 @@ const pillars = [
 export default function Philosophy() {
   return (
     <section
-      className="relative py-32 lg:py-44 px-6 md:px-12 bg-[#030303] overflow-hidden"
+      className="relative py-32 lg:py-44 px-6 md:px-12 bg-[var(--th-bg)] overflow-hidden transition-colors duration-300"
     >
       {/* ── Background decoration ── */}
       <div className="absolute inset-0 pointer-events-none">
@@ -49,7 +49,7 @@ export default function Philosophy() {
           className="absolute inset-0 opacity-[0.015]"
           style={{
             backgroundImage:
-              "linear-gradient(rgba(255,255,255,0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.05) 1px, transparent 1px)",
+              "linear-gradient(var(--th-grid) 1px, transparent 1px), linear-gradient(90deg, var(--th-grid) 1px, transparent 1px)",
             backgroundSize: "60px 60px",
           }}
         />
@@ -71,10 +71,10 @@ export default function Philosophy() {
             </span>
             <div className="w-12 h-[1px] bg-[#d4af37]/40" />
           </div>
-          <h2 className="text-5xl md:text-7xl lg:text-8xl font-serif text-white tracking-tight uppercase">
+          <h2 className="text-5xl md:text-7xl lg:text-8xl font-serif text-[var(--th-text)] tracking-tight uppercase">
             The Method
           </h2>
-          <p className="text-white/25 mt-6 max-w-lg mx-auto text-base font-light leading-relaxed">
+          <p className="text-[var(--th-text-4)] mt-6 max-w-lg mx-auto text-base font-light leading-relaxed">
             Four guiding pillars that define the philosophy behind every keynote,
             book, and transformation.
           </p>
@@ -93,7 +93,7 @@ export default function Philosophy() {
                 duration: 0.8,
                 ease: [0.16, 1, 0.3, 1],
               }}
-              className={`group relative rounded-2xl bg-[#080808] border border-white/[0.06] hover:border-[#d4af37]/20 transition-all duration-700 p-8 md:p-10 lg:p-12 overflow-hidden min-h-[400px] flex flex-col ${
+              className={`group relative rounded-2xl bg-[var(--th-card)] border border-[var(--th-border)] hover:border-[#d4af37]/20 transition-all duration-700 p-8 md:p-10 lg:p-12 overflow-hidden min-h-[400px] flex flex-col ${
                 idx % 2 === 1 ? "md:translate-y-8" : ""
               }`}
             >
@@ -105,7 +105,7 @@ export default function Philosophy() {
               <div className="absolute top-0 left-0 w-[1px] h-16 bg-[#d4af37]/30 group-hover:h-24 transition-all duration-700" />
 
               {/* Watermark number */}
-              <span className="absolute -top-2 right-4 text-[140px] md:text-[160px] font-serif font-bold text-white/[0.025] group-hover:text-[#d4af37]/[0.05] transition-colors duration-1000 leading-none select-none pointer-events-none">
+              <span className="absolute -top-2 right-4 text-[140px] md:text-[160px] font-serif font-bold text-[var(--th-watermark)] group-hover:text-[#d4af37]/[0.05] transition-colors duration-1000 leading-none select-none pointer-events-none">
                 {pillar.number}
               </span>
 
@@ -114,7 +114,7 @@ export default function Philosophy() {
                 <span className="text-[#d4af37] text-[10px] uppercase tracking-[0.4em] font-medium">
                   {pillar.keyword}
                 </span>
-                <h3 className="text-2xl md:text-3xl lg:text-[2rem] font-serif text-white leading-[1.2] tracking-tight whitespace-pre-line">
+                <h3 className="text-2xl md:text-3xl lg:text-[2rem] font-serif text-[var(--th-text)] leading-[1.2] tracking-tight whitespace-pre-line">
                   {pillar.title}
                 </h3>
               </div>
@@ -129,8 +129,8 @@ export default function Philosophy() {
                     {pillar.quote}
                   </p>
                 </div>
-                <div className="w-full h-[1px] bg-white/[0.04]" />
-                <p className="text-white/25 text-sm font-light leading-[1.9]">
+                <div className="w-full h-[1px] bg-[var(--th-border-subtle)]" />
+                <p className="text-[var(--th-text-4)] text-sm font-light leading-[1.9]">
                   {pillar.description}
                 </p>
               </div>
