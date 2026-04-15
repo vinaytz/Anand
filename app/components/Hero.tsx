@@ -27,7 +27,7 @@ export default function Hero() {
         </p>
         <Link
           href="/about"
-          className="inline-flex items-center justify-center min-h-[56px] px-10 bg-[var(--btn-bg)] text-[var(--btn-text)] text-[14px] uppercase tracking-[0.1em] font-sans font-semibold no-underline hover:bg-[var(--btn-hover)] transition-colors duration-300"
+          className="inline-flex items-center justify-center min-h-14 px-10 bg-(--btn-bg) text-(--btn-text) text-[14px] uppercase tracking-widest font-sans font-semibold no-underline hover:bg-(--btn-hover) transition-colors duration-300"
         >
           Know More
         </Link>

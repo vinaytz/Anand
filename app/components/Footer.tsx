@@ -51,7 +51,7 @@ const footerLinks = [
 
 export default function Footer() {
   return (
-    <footer className="w-full bg-[var(--bg-light)]">
+    <footer className="w-full bg-(--bg-light)">
       {/* Social Icons */}
       <div className="flex items-center justify-center gap-6 py-8">
         {socialLinks.map((social) => (
@@ -76,7 +76,7 @@ export default function Footer() {
 
       {/* Copyright & Nav */}
       <div className="max-w-7xl mx-auto px-6 py-6 flex flex-col md:flex-row items-center justify-between gap-4">
-        <p className="text-[12px] text-[var(--text-light)] font-sans">
+        <p className="text-[12px] text-(--text-light) font-sans">
           Copyright © {new Date().getFullYear()} Dr. Anand K Shukla - All Rights Reserved.
         </p>
         <nav className="flex items-center gap-6">
@@ -87,7 +87,7 @@ export default function Footer() {
                 href={link.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-[12px] uppercase tracking-[0.083em] text-[var(--text-light)] hover:text-[var(--text-link-hover)] font-sans transition-colors"
+                className="text-[12px] uppercase tracking-[0.083em] text-(--text-light) hover:text-(--text-link-hover) font-sans transition-colors"
               >
                 {link.label}
               </a>
@@ -95,7 +95,7 @@ export default function Footer() {
               <Link
                 key={link.label}
                 href={link.href}
-                className="text-[12px] uppercase tracking-[0.083em] text-[var(--text-light)] hover:text-[var(--text-link-hover)] font-sans transition-colors"
+                className="text-[12px] uppercase tracking-[0.083em] text-(--text-light) hover:text-(--text-link-hover) font-sans transition-colors"
               >
                 {link.label}
               </Link>

@@ -12,8 +12,13 @@ export default function Home() {
       <Navbar />
       <Hero />
       <ContentCards />
-      <BannerSection src="/gallery/stage.jpeg" alt="Dr. Anand K Shukla speaking" position="59% 33%" />
-      <BannerSection src="/gallery/internationl.jpeg" alt="International events" position="50% 70%" />
+      <BannerSection
+        src="/gallery/internationl.jpeg"
+        alt="Dr. Anand K Shukla at Infocomm India"
+        position="50% 40%"
+        quote="Success is what you gather. Legacy is what you scatter."
+        attribution="Dr. Anand K Shukla"
+      />
       <VideoSection />
       <GalleryCarousel />
       <Footer />

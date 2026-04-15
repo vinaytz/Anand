@@ -5,15 +5,15 @@ const cards = [
   {
     image: "/gallery/stage_speaking1.jpeg",
     heading: "SPEAKING",
-    text: "Dr. Anand K Shukla has delivered 50+ keynotes across 4 continents, inspiring audiences at TEDx, IIT Delhi, IIM Ahmedabad, and global leadership forums.",
+    text: "50+ keynotes across 4 continents — TEDx, IIT Delhi, IIM Ahmedabad, and global leadership forums.",
     cta: "Watch Talks",
     href: "https://www.youtube.com/@SandeepSeminars/videos",
     external: true,
   },
   {
-    image: "/gallery/2.jpeg",
+    image: "/gallery/4.jpeg",
     heading: "ABOUT",
-    text: "Dr. Anand K Shukla is a name among millions who struggled, failed & surged ahead in pursuit of purpose. An educator, author, and thought leader impacting 100K+ lives.",
+    text: "An educator, author, and thought leader who has impacted 100K+ lives through purpose and resilience.",
     cta: "Learn More",
     href: "/about",
     external: false,
@@ -21,7 +21,7 @@ const cards = [
   {
     image: "/gallery/stage_speaking2.jpeg",
     heading: "INVITE",
-    text: "To invite Dr. Anand K Shukla for a keynote, workshop, or guest lecture at your organization, kindly fill the invitation form.",
+    text: "Invite Dr. Anand K Shukla for a keynote, workshop, or guest lecture at your organisation.",
     cta: "Invite Now",
     href: "/invite",
     external: false,
@@ -30,50 +30,56 @@ const cards = [
 
 export default function ContentCards() {
   return (
-    <section className="w-full bg-white py-10 md:py-16">
-      <div className="max-w-7xl mx-auto px-6">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {cards.map((card) => (
-            <div key={card.heading} className="group">
-              {/* Image */}
-              <div className="relative aspect-[3/4] overflow-hidden mb-4">
-                <Image
-                  src={card.image}
-                  alt={card.heading}
-                  fill
-                  className="object-cover transition-transform duration-500 group-hover:scale-105"
-                />
-                <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-500" />
+    <section className="w-full bg-white py-14 md:py-20">
+      <div className="max-w-6xl mx-auto px-6">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-10">
+          {cards.map((card) => {
+            const inner = (
+              <div key={card.heading} className="group cursor-pointer">
+                {/* Image with overlay label */}
+                <div className="relative aspect-[4/5] overflow-hidden">
+                  <Image
+                    src={card.image}
+                    alt={card.heading}
+                    fill
+                    sizes="(max-width: 768px) 100vw, 33vw"
+                    className="object-cover transition-transform duration-700 group-hover:scale-105"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-black/10 to-transparent" />
+                  <div className="absolute bottom-0 left-0 right-0 p-6">
+                    <h3 className="text-white text-[13px] uppercase tracking-[0.2em] font-sans font-semibold mb-1">
+                      {card.heading}
+                    </h3>
+                    <p className="text-white/80 text-[14px] leading-relaxed font-sans line-clamp-2">
+                      {card.text}
+                    </p>
+                  </div>
+                </div>
+                {/* CTA below image */}
+                <div className="mt-4">
+                  <span className="inline-flex items-center gap-2 text-[13px] uppercase tracking-[0.15em] font-sans font-semibold text-(--text-link) group-hover:text-(--accent) transition-colors duration-300">
+                    {card.cta}
+                    <svg className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                    </svg>
+                  </span>
+                </div>
               </div>
+            );
 
-              {/* Content */}
-              <h3 className="font-serif text-xl md:text-2xl text-[var(--text-dark)] mb-3 tracking-wide">
-                {card.heading}
-              </h3>
-              <p className="text-[var(--text-body)] text-[15px] leading-relaxed mb-4 font-sans">
-                {card.text}
-              </p>
-
-              {/* CTA */}
-              {card.external ? (
-                <a
-                  href={card.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center min-h-[48px] px-8 bg-[var(--btn-bg)] text-[var(--btn-text)] text-[13px] uppercase tracking-[0.1em] font-sans font-semibold no-underline hover:bg-[var(--btn-hover)] transition-colors duration-300"
-                >
-                  {card.cta}
+            if (card.external) {
+              return (
+                <a key={card.heading} href={card.href} target="_blank" rel="noopener noreferrer" className="no-underline">
+                  {inner}
                 </a>
-              ) : (
-                <Link
-                  href={card.href}
-                  className="inline-flex items-center justify-center min-h-[48px] px-8 bg-[var(--btn-bg)] text-[var(--btn-text)] text-[13px] uppercase tracking-[0.1em] font-sans font-semibold no-underline hover:bg-[var(--btn-hover)] transition-colors duration-300"
-                >
-                  {card.cta}
-                </Link>
-              )}
-            </div>
-          ))}
+              );
+            }
+            return (
+              <Link key={card.heading} href={card.href} className="no-underline">
+                {inner}
+              </Link>
+            );
+          })}
         </div>
       </div>
     </section>

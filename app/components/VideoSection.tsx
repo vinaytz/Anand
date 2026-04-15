@@ -1,10 +1,13 @@
 export default function VideoSection() {
   return (
-    <section className="w-full bg-white py-10 md:py-16">
+    <section className="w-full bg-white py-14 md:py-20">
       <div className="max-w-4xl mx-auto px-6">
-        <div className="relative w-full" style={{ paddingBottom: "56.25%", maxHeight: "620px" }}>
+        <h2 className="font-serif text-2xl md:text-3xl text-(--text-dark) text-center mb-8">
+          Featured Talk
+        </h2>
+        <div className="relative w-full overflow-hidden shadow-lg" style={{ paddingBottom: "56.25%" }}>
           <iframe
-            src="https://www.youtube.com/embed/hPFN4UDgMZ4?rel=0&showinfo=0&controls=1"
+            src="https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7441835599231176704?compact=1"
             title="Dr. Anand K Shukla - Featured Talk"
             className="absolute inset-0 w-full h-full"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"

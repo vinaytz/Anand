@@ -18,7 +18,7 @@ export default function Navbar() {
 
   return (
     <header className="sticky top-0 z-50 bg-white shadow-[0_2px_6px_0px_rgba(0,0,0,0.08)]">
-      <div className="max-w-7xl mx-auto px-6 flex items-center justify-between h-[72px]">
+      <div className="max-w-7xl mx-auto px-6 flex items-center justify-between h-18">
         {/* Logo */}
         <Link href="/" className="flex items-center gap-3 no-underline">
           <Image
@@ -28,7 +28,7 @@ export default function Navbar() {
             height={44}
             className="rounded-full object-cover"
           />
-          <span className="font-serif text-[22px] text-[var(--text-dark)] tracking-tight">
+          <span className="font-serif text-[22px] text-(--text-dark) tracking-tight">
             Dr. Anand K Shukla
           </span>
         </Link>
@@ -40,8 +40,8 @@ export default function Navbar() {
             const baseClass =
               "text-[14px] uppercase tracking-[0.214em] font-sans transition-colors duration-200 pb-1";
             const activeClass = isActive
-              ? "text-[var(--text-dark)] border-b border-[var(--accent)]"
-              : "text-[var(--text-link)] hover:text-[var(--text-link-hover)] border-b border-transparent";
+              ? "text-(--text-dark) border-b border-(--accent)"
+              : "text-(--text-link) hover:text-(--text-link-hover) border-b border-transparent";
 
             if (link.external) {
               return (
@@ -71,13 +71,13 @@ export default function Navbar() {
 
         {/* Mobile Hamburger */}
         <button
-          className="md:hidden flex flex-col gap-[5px] p-2"
+          className="md:hidden flex flex-col gap-1.25 p-2"
           onClick={() => setMobileOpen(!mobileOpen)}
           aria-label="Toggle menu"
         >
-          <span className={`w-6 h-[2px] bg-[var(--text-dark)] transition-transform duration-300 ${mobileOpen ? "rotate-45 translate-y-[7px]" : ""}`} />
-          <span className={`w-6 h-[2px] bg-[var(--text-dark)] transition-opacity duration-300 ${mobileOpen ? "opacity-0" : ""}`} />
-          <span className={`w-6 h-[2px] bg-[var(--text-dark)] transition-transform duration-300 ${mobileOpen ? "-rotate-45 -translate-y-[7px]" : ""}`} />
+          <span className={`w-6 h-0.5 bg-(--text-dark) transition-transform duration-300 ${mobileOpen ? "rotate-45 translate-y-1.75" : ""}`} />
+          <span className={`w-6 h-0.5 bg-(--text-dark) transition-opacity duration-300 ${mobileOpen ? "opacity-0" : ""}`} />
+          <span className={`w-6 h-0.5 bg-(--text-dark) transition-transform duration-300 ${mobileOpen ? "-rotate-45 -translate-y-1.75" : ""}`} />
         </button>
       </div>
 
@@ -94,7 +94,7 @@ export default function Navbar() {
                     href={link.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-[14px] uppercase tracking-[0.214em] font-sans text-[var(--text-link)] py-2"
+                    className="text-[14px] uppercase tracking-[0.214em] font-sans text-(--text-link) py-2"
                     onClick={() => setMobileOpen(false)}
                   >
                     {link.label}
@@ -106,7 +106,7 @@ export default function Navbar() {
                   key={link.href}
                   href={link.href}
                   className={`text-[14px] uppercase tracking-[0.214em] font-sans py-2 ${
-                    isActive ? "text-[var(--text-dark)]" : "text-[var(--text-link)]"
+                    isActive ? "text-(--text-dark)" : "text-(--text-link)"
                   }`}
                   onClick={() => setMobileOpen(false)}
                 >
