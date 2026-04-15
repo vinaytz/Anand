@@ -1,9 +1,9 @@
 const stats = [
-    { bold: "Best Author", label: "& Researcher" },
-    { bold: "5+", label: "Journals Published" },
-    { bold: "38+", label: "Conference Papers" },
-    { bold: "5+", label: "Books & Book Chapters" },
-  { bold: "Motivational", label: "Speaker" },
+    { bold: "Best Author", label: "10+ Books" },
+    { bold: "International Publications", label: "100+ Global Publications" },
+    // { bold: "5+", label: "Journals Published" },
+  //   { bold: "5+", label: "Books & Book Chapters" },
+  { bold: "Motivational Speaker", label: "& Education Leader" },
 ];
 
 export default function StatsBar() {
@@ -16,7 +16,6 @@ export default function StatsBar() {
               key={i}
               className={`flex flex-col items-center px-6 md:px-10 py-4 text-center w-1/2 md:w-auto md:flex-1
                 ${i < 4 ? "border-b border-gray-200 md:border-b-0" : ""}
-                ${i % 2 === 0 && i < 4 ? "border-r border-gray-200 md:border-r-0" : ""}
               `}
             >
               <span className="text-(--text-dark) text-xl md:text-2xl font-bold font-sans leading-tight">

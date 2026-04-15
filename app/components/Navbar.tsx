@@ -22,7 +22,7 @@ export default function Navbar() {
         {/* Logo */}
         <Link href="/" className="flex items-center gap-2 sm:gap-3 no-underline min-w-0 shrink">
           <Image
-            src="/gallery/semiMain.png"
+            src="/logo.png"
             alt="Dr. Anand K Shukla"
             width={44}
             height={44}

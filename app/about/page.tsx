@@ -4,28 +4,28 @@ import Footer from "../components/Footer";
 
 const sections = [
   {
-    title: "The Journey",
-    text: "Dr. Anand K Shukla's journey is a unique one, taking him from the world of academia to the global stage as a motivational speaker and thought leader. Starting as a lecturer in 2005, he realized early that education must build the person, not just the professional. His relentless pursuit of purpose led him to become the Dean of Academics, transforming curriculum to integrate emotional intelligence and leadership.",
+    title: "Academia & Leadership",
+    text: "A senior IEEE member, Prof. (Dr.) Anand Kr. Shukla is a Professor and Dean of Computer Science and Application at Lovely Professional University (NAAC A++, NIRF 31, QS Ranking 4, WURI 04) — India's largest and most reputed private university. Across a career spanning 22 years, he has served in several universities and institutions as Head, Director, Dean, and Executive Dean/Director.",
     image: "/gallery/stage2.jpeg",
   },
   {
-    title: "The Transition",
-    text: "Dr. Shukla's transition from educator to global speaker stemmed from a deep desire to impact lives beyond the classroom. He began delivering motivational keynotes, drawing on his own experiences, challenges, and two decades of academic wisdom. His first international keynote at the Dubai Leadership Forum in 2012 — 'The Silent Leader' — marked the beginning of a new chapter.",
+    title: "Research & Publications",
+    text: "Dr. Shukla has more than 100 publications including SCI and Scopus-indexed journals, 15 patents to his name, and is the solo author of 5 books. He is an Elsevier Certified Reviewer and editor, serving several national and international journals. Several PhD research scholars have been successfully supervised under his guidance.",
     image: "/gallery/new.jpeg",
   },
   {
-    title: "The Core Message",
-    text: "Dr. Shukla's talks focus on resilience, leadership, and self-belief. He emphasises the importance of 'Silent Authority' — commanding respect through presence, not volume. His core message bridges ancient wisdom with modern corporate strategy, reminding people of their inner strength and the power of integrity-driven leadership.",
+    title: "Speaker & Tech Evangelist",
+    text: "A renowned national and international Tech and Motivational Speaker, Dr. Shukla is a registered member of Asia's largest tech events — Infocomm Asia and Infocomm India. He has been invited as a keynote and guest speaker at national and international universities, and has spoken at several IEEE and Springer conferences. His YouTube channel features 100+ lectures on Java, Python, and Machine Learning.",
     image: "/gallery/stage_speaking2.jpeg",
   },
   {
-    title: "The Reach",
-    text: "The impact of Dr. Shukla's message extends far beyond physical speeches. With 50+ keynotes delivered across 4 continents, engagements at TEDx, IIT Delhi, IIM Ahmedabad, and global leadership forums, his influence touches millions. His 3 best-selling books — including 'The Architecture of Thought' — have been read by over 50,000 people worldwide.",
+    title: "Professional Memberships",
+    text: "Dr. Shukla is an active member of prominent professional bodies including IEEE, ACM, International Association of Engineers, and CSTA NY USA. He is deeply involved in accreditation work (NAAC and NBA), has organised international conferences (Springer and IEEE) and FDPs in association with NITTTR, and conducted prestigious events like Hackathons and Coda Thons.",
     image: "/gallery/4.jpeg",
   },
   {
-    title: "The Legacy",
-    text: "Dr. Anand K Shukla's influence on over 100K+ lives serves as a testament to the power of purpose and resilience. His journey from lecturer, to Dean, to published author, to global speaker is an inspiration to those seeking to find their calling and create lasting impact. As he says: 'Success is what you gather. Legacy is what you scatter.'",
+    title: "Awards & Recognition",
+    text: "Dr. Anand Kr. Shukla has been awarded the \"Research Excellence Award\" by STEM-Research Society in association with Dr. B.R. Ambedkar National Institute of Technology, Jalandhar on 30th December 2020, and the \"RMA (Rohilkhand Medical Association) Gem 2017\" Award for Health Care Services, among many other national and international recognitions.",
     image: "/gallery/stage_podium1.jpeg",
   },
 ];
@@ -53,7 +53,7 @@ export default function AboutPage() {
               The Person
             </h1>
             <p className="text-white/70 text-[13px] uppercase tracking-[0.25em] font-sans">
-              Scholar &middot; Speaker &middot; Thought Leader
+              Professor &middot; Dean &middot; Author &middot; Speaker
             </p>
           </div>
         </div>
@@ -62,10 +62,10 @@ export default function AboutPage() {
       {/* Bio intro */}
       <section className="max-w-3xl mx-auto px-6 py-14 md:py-20">
         <p className="text-(--text-body) text-[17px] leading-[1.8] font-sans text-center">
-          Dr. Anand K Shukla is a renowned educator, motivational speaker, published author,
-          and thought leader from India. With over 20 years in academia and 50+ global keynotes
-          across 4 continents, he has become a respected figure in the personal development
-          and leadership space.
+          Prof. (Dr.) Anand Kr. Shukla is a Professor, Dean, senior IEEE member, published author,
+          and internationally recognised Tech &amp; Motivational Speaker. With 22 years in academia,
+          100+ publications, 15 patents, and keynotes at IEEE &amp; Springer conferences worldwide,
+          he is a defining voice in education, research, and leadership.
         </p>
       </section>
 
