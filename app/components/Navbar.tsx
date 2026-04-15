@@ -1,159 +1,122 @@
-"use client"
+"use client";
 
-import React, { useState, useEffect } from 'react';
-import { createPortal } from 'react-dom';
-import { Menu, X, Sun, Moon } from 'lucide-react';
-import { usePathname } from 'next/navigation';
-import { useTheme } from './ThemeProvider';
+import { useState } from "react";
+import Link from "next/link";
+import Image from "next/image";
+import { usePathname } from "next/navigation";
+
+const navLinks = [
+  { label: "Home", href: "/" },
+  { label: "ABOUT", href: "/about" },
+  { label: "VIDEOS", href: "https://www.youtube.com/@SandeepSeminars/videos", external: true },
+  { label: "INVITE", href: "/invite" },
+];
 
 export default function Navbar() {
-  const [isScrolled, setIsScrolled] = useState(false);
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const { theme, toggleTheme } = useTheme();
-    // Prevent background scroll when mobile menu is open
-    useEffect(() => {
-      if (isMobileMenuOpen) {
-        document.body.style.overflow = 'hidden';
-      } else {
-        document.body.style.overflow = '';
-      }
-      return () => {
-        document.body.style.overflow = '';
-      };
-    }, [isMobileMenuOpen]);
+  const [mobileOpen, setMobileOpen] = useState(false);
   const pathname = usePathname();
-  const isHome = pathname === '/';
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > window.innerHeight * 0.85);
-    };
-    window.addEventListener('scroll', handleScroll);
-    handleScroll();
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
-  // On non-home pages, always show the navbar
-  const showNavbar = !isHome || isScrolled;
-
-  const navLinks = [
-    { name: 'About', href: '/about' },
-    { name: 'Speaking', href: '/speaking' },
-    { name: 'Author', href: '/author' },
-    { name: 'Gallery', href: '/gallery' },
-    { name: 'Videos', href: '/videos' },
-  ];
 
   return (
-    <nav
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-700 ${
-        showNavbar 
-          ? 'bg-[var(--th-overlay)] backdrop-blur-xl border-b border-[var(--th-border-subtle)] py-4 translate-y-0 opacity-100' 
-          : '-translate-y-full opacity-0 pointer-events-none py-6'
-      }`}
-    >
-      <div className="max-w-7xl mx-auto px-6 md:px-12 flex justify-between items-center">
+    <header className="sticky top-0 z-50 bg-white shadow-[0_2px_6px_0px_rgba(0,0,0,0.08)]">
+      <div className="max-w-7xl mx-auto px-6 flex items-center justify-between h-[72px]">
         {/* Logo */}
-        <a href="/" className="font-serif text-xl text-[var(--th-text)] tracking-tight z-50" data-cursor="pointer">
-          Dr. Anand K <span className="text-[#d4af37]">Shukla</span>
-        </a>
+        <Link href="/" className="flex items-center gap-3 no-underline">
+          <Image
+            src="/gallery/semiMain.png"
+            alt="Dr. Anand K Shukla"
+            width={44}
+            height={44}
+            className="rounded-full object-cover"
+          />
+          <span className="font-serif text-[22px] text-[var(--text-dark)] tracking-tight">
+            Dr. Anand K Shukla
+          </span>
+        </Link>
 
-        {/* Desktop Menu */}
-        <div className="hidden md:flex items-center gap-10">
-          {navLinks.map((link) => (
-            <a 
-              key={link.name} 
-              href={link.href}
-              className="relative text-[12px] uppercase tracking-[0.2em] text-[var(--th-text-3)] hover:text-[var(--th-text)] transition-colors duration-500 group"
-              data-cursor="pointer"
-            >
-              {link.name}
-              <span className="absolute -bottom-1 left-0 w-0 h-[0.5px] bg-[#d4af37] group-hover:w-full transition-all duration-500" />
-            </a>
-          ))}
+        {/* Desktop Nav */}
+        <nav className="hidden md:flex items-center gap-8">
+          {navLinks.map((link) => {
+            const isActive = !link.external && pathname === link.href;
+            const baseClass =
+              "text-[14px] uppercase tracking-[0.214em] font-sans transition-colors duration-200 pb-1";
+            const activeClass = isActive
+              ? "text-[var(--text-dark)] border-b border-[var(--accent)]"
+              : "text-[var(--text-link)] hover:text-[var(--text-link-hover)] border-b border-transparent";
 
-          {/* Theme Toggle */}
-          <button
-            onClick={toggleTheme}
-            className="relative w-9 h-9 rounded-full border border-[var(--th-border)] hover:border-[#d4af37]/40 flex items-center justify-center transition-all duration-500 group"
-            aria-label="Toggle theme"
-            data-cursor="pointer"
-          >
-            {theme === 'light' ? (
-              <Moon className="w-4 h-4 text-[var(--th-text-3)] group-hover:text-[#d4af37] transition-colors duration-300" />
-            ) : (
-              <Sun className="w-4 h-4 text-[var(--th-text-3)] group-hover:text-[#d4af37] transition-colors duration-300" />
-            )}
-          </button>
+            if (link.external) {
+              return (
+                <a
+                  key={link.href}
+                  href={link.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={`${baseClass} ${activeClass}`}
+                >
+                  {link.label}
+                </a>
+              );
+            }
 
-          <a 
-            href="/#contact"
-            className="px-5 py-2 border border-[var(--th-border)] text-[12px] uppercase tracking-[0.2em] text-[var(--th-text-2)] hover:border-[#d4af37]/40 hover:text-[#d4af37] transition-all duration-500 rounded-full"
-            data-cursor="pointer"
-          >
-            Invite Me
-          </a>
-        </div>
+            return (
+              <Link
+                key={link.href}
+                href={link.href}
+                className={`${baseClass} ${activeClass}`}
+              >
+                {link.label}
+              </Link>
+            );
+          })}
+        </nav>
 
-        {/* Mobile: Theme Toggle + Menu Toggle */}
-        <div className="md:hidden flex items-center gap-3 z-[60]">
-          <button
-            onClick={toggleTheme}
-            className="w-9 h-9 rounded-full border border-[var(--th-border)] flex items-center justify-center"
-            aria-label="Toggle theme"
-          >
-            {theme === 'light' ? (
-              <Moon className="w-4 h-4 text-[var(--th-text-3)]" />
-            ) : (
-              <Sun className="w-4 h-4 text-[var(--th-text-3)]" />
-            )}
-          </button>
-          <button 
-            className="text-[var(--th-text)] relative"
-            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            aria-label="Toggle menu"
-          >
-            {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
-          </button>
-        </div>
+        {/* Mobile Hamburger */}
+        <button
+          className="md:hidden flex flex-col gap-[5px] p-2"
+          onClick={() => setMobileOpen(!mobileOpen)}
+          aria-label="Toggle menu"
+        >
+          <span className={`w-6 h-[2px] bg-[var(--text-dark)] transition-transform duration-300 ${mobileOpen ? "rotate-45 translate-y-[7px]" : ""}`} />
+          <span className={`w-6 h-[2px] bg-[var(--text-dark)] transition-opacity duration-300 ${mobileOpen ? "opacity-0" : ""}`} />
+          <span className={`w-6 h-[2px] bg-[var(--text-dark)] transition-transform duration-300 ${mobileOpen ? "-rotate-45 -translate-y-[7px]" : ""}`} />
+        </button>
       </div>
 
-      {/* Mobile Menu Overlay */}
-      {isMobileMenuOpen && typeof window !== 'undefined' && createPortal(
-        <div
-          className="fixed inset-0 z-[99999] bg-[var(--th-overlay-heavy)] backdrop-blur-2xl flex flex-col items-center justify-center gap-8 overflow-y-auto pointer-events-auto select-auto"
-          style={{ overscrollBehavior: 'none', touchAction: 'none' }}
-        >
-          <button
-            className="absolute top-6 right-6 text-[var(--th-text)] text-3xl focus:outline-none"
-            aria-label="Close menu"
-            onClick={() => setIsMobileMenuOpen(false)}
-            style={{ zIndex: 100000 }}
-          >
-            &times;
-          </button>
-          {navLinks.map((link) => (
-            <a
-              key={link.name}
-              href={link.href}
-              className="text-3xl font-serif text-[var(--th-text-2)] hover:text-[var(--th-text)] transition-colors"
-              onClick={() => setIsMobileMenuOpen(false)}
-              style={{ zIndex: 100000 }}
-            >
-              {link.name}
-            </a>
-          ))}
-          <a
-            href="/#contact"
-            className="text-lg text-[#d4af37] mt-4"
-            onClick={() => setIsMobileMenuOpen(false)}
-            style={{ zIndex: 100000 }}
-          >
-            Invite Me
-          </a>
-        </div>,
-        document.body
+      {/* Mobile Drawer */}
+      {mobileOpen && (
+        <div className="md:hidden bg-white border-t border-gray-100 shadow-lg">
+          <nav className="flex flex-col px-6 py-4 gap-4">
+            {navLinks.map((link) => {
+              const isActive = !link.external && pathname === link.href;
+              if (link.external) {
+                return (
+                  <a
+                    key={link.href}
+                    href={link.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-[14px] uppercase tracking-[0.214em] font-sans text-[var(--text-link)] py-2"
+                    onClick={() => setMobileOpen(false)}
+                  >
+                    {link.label}
+                  </a>
+                );
+              }
+              return (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  className={`text-[14px] uppercase tracking-[0.214em] font-sans py-2 ${
+                    isActive ? "text-[var(--text-dark)]" : "text-[var(--text-link)]"
+                  }`}
+                  onClick={() => setMobileOpen(false)}
+                >
+                  {link.label}
+                </Link>
+              );
+            })}
+          </nav>
+        </div>
       )}
-    </nav>
+    </header>
   );
 }

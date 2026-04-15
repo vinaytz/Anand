@@ -1,9 +1,6 @@
 import type { Metadata } from "next";
 import { Playfair_Display, Inter } from "next/font/google";
 import "./globals.css";
-import SmoothScroll from "./components/SmoothScroll";
-import CustomCursor from "./components/CustomCursor";
-import ThemeProvider from "./components/ThemeProvider";
 
 const playfair = Playfair_Display({
   variable: "--font-playfair",
@@ -18,8 +15,8 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Dr. Anand K Shukla | Speaker. Author. Thinker.",
-  description: "The personal portfolio of Dr. Anand K Shukla. Wisdom, leadership, and storytelling.",
+  title: "Dr. Anand K Shukla | Scholar. Speaker. Thought Leader.",
+  description: "Dr. Anand K Shukla is a renowned educator, motivational speaker, and published author impacting 100K+ lives across 4 continents.",
 };
 
 export default function RootLayout({
@@ -28,23 +25,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" data-theme="light" className="scroll-smooth" suppressHydrationWarning>
-      <head>
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `try{const t=localStorage.getItem('theme');if(t==='dark'||t==='light')document.documentElement.setAttribute('data-theme',t)}catch(e){}`,
-          }}
-        />
-      </head>
+    <html lang="en" className="scroll-smooth">
       <body
-        className={`${playfair.variable} ${inter.variable} antialiased bg-[var(--th-bg)] text-[var(--th-text-2)] font-sans transition-colors duration-300`}
+        className={`${playfair.variable} ${inter.variable} antialiased`}
       >
-        <ThemeProvider>
-          <CustomCursor />
-          <SmoothScroll>
-            {children}
-          </SmoothScroll>
-        </ThemeProvider>
+        {children}
       </body>
     </html>
   );

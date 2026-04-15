@@ -1,39 +1,22 @@
-import Preloader from "./components/Preloader";
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
-import LogoStrip from "./components/LogoStrip";
-import AboutSection from "./components/AboutSection";
-import Philosophy from "./components/Philosophy";
-import ImpactMetrics from "./components/ImpactMetrics";
-import VisualJourney from "./components/VisualJourney";
-import WorkShowcase from "./components/WorkShowcase";
-import VideoGallery from "./components/VideoGallery";
-import { Testimonials } from "./components/Testimonials";
-import InviteSection from "./components/InviteSection";
+import ContentCards from "./components/ContentCards";
+import BannerSection from "./components/BannerSection";
+import VideoSection from "./components/VideoSection";
+import GalleryCarousel from "./components/GalleryCarousel";
 import Footer from "./components/Footer";
 
 export default function Home() {
   return (
-    <main className="relative min-h-screen bg-[var(--th-bg)] overflow-x-hidden transition-colors duration-300">
-      {/* Global noise texture */}
-      <div className="fixed inset-0 z-[100] pointer-events-none opacity-[0.018] mix-blend-overlay bg-noise" />
-
-      <Preloader />
+    <main className="min-h-screen bg-white">
       <Navbar />
       <Hero />
-      <LogoStrip />
-      <AboutSection />
-      <Philosophy />
-      <ImpactMetrics />
-      <VisualJourney />
-      <WorkShowcase />
-      <VideoGallery />
-      <Testimonials />
-      <InviteSection />
+      <ContentCards />
+      <BannerSection src="/gallery/stage.jpeg" alt="Dr. Anand K Shukla speaking" position="59% 33%" />
+      <BannerSection src="/gallery/internationl.jpeg" alt="International events" position="50% 70%" />
+      <VideoSection />
+      <GalleryCarousel />
       <Footer />
     </main>
   );
 }
-
-
-

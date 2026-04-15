@@ -1,80 +1,102 @@
-import React from "react";
+import Image from "next/image";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
-import AboutSection from "../components/AboutSection";
-import InviteSection from "../components/InviteSection";
-import EpicTimeline from "../components/EpicTimeline";
+
+const sections = [
+  {
+    title: "The Journey",
+    text: "Dr. Anand K Shukla's journey is a unique one, taking him from the world of academia to the global stage as a motivational speaker and thought leader. Starting as a lecturer in 2005, he realized early that education must build the person, not just the professional. His relentless pursuit of purpose led him to become the Dean of Academics, transforming curriculum to integrate emotional intelligence and leadership.",
+  },
+  {
+    title: "The Transition",
+    text: "Dr. Shukla's transition from educator to global speaker stemmed from a deep desire to impact lives beyond the classroom. He began delivering motivational keynotes, drawing on his own experiences, challenges, and two decades of academic wisdom. His first international keynote at the Dubai Leadership Forum in 2012 — 'The Silent Leader' — marked the beginning of a new chapter.",
+  },
+  {
+    title: "The Core Message",
+    text: "Dr. Shukla's talks focus on resilience, leadership, and self-belief. He emphasises the importance of 'Silent Authority' — commanding respect through presence, not volume. His core message bridges ancient wisdom with modern corporate strategy, reminding people of their inner strength and the power of integrity-driven leadership.",
+  },
+  {
+    title: "The Reach",
+    text: "The impact of Dr. Shukla's message extends far beyond physical speeches. With 50+ keynotes delivered across 4 continents, engagements at TEDx, IIT Delhi, IIM Ahmedabad, and global leadership forums, his influence touches millions. His 3 best-selling books — including 'The Architecture of Thought' — have been read by over 50,000 people worldwide.",
+  },
+  {
+    title: "The Legacy",
+    text: "Dr. Anand K Shukla's influence on over 100K+ lives serves as a testament to the power of purpose and resilience. His journey from lecturer, to Dean, to published author, to global speaker is an inspiration to those seeking to find their calling and create lasting impact. As he says: 'Success is what you gather. Legacy is what you scatter.'",
+  },
+];
 
 export default function AboutPage() {
   return (
-    <main className="min-h-screen bg-[var(--th-bg)] selection:bg-gold-500 selection:text-black transition-colors duration-300">
+    <main className="min-h-screen bg-white">
       <Navbar />
 
-      {/* Top-right grid */}
-      <div
-        className="fixed inset-0 z-[6] pointer-events-none"
-        style={{
-          backgroundImage: `
-            linear-gradient(to right, var(--th-grid) 1px, transparent 1px),
-            linear-gradient(to bottom, var(--th-grid) 1px, transparent 1px)
-          `,
-          backgroundSize: "48px 48px",
-          WebkitMaskImage:
-            "radial-gradient(ellipse 60% 60% at 100% 0%, #000 50%, transparent 65%)",
-          maskImage:
-            "radial-gradient(ellipse 60% 60% at 100% 0%, #000 50%, transparent 65%)",
-        }}
-      />
-
-      {/* ── Cinematic Header ── */}
-      <div className="relative h-[50vh] sm:h-[60vh] md:h-[70vh] bg-[var(--th-bg)]">
-        {/* Massive background text — positioned at bottom, outside overflow-hidden so it won't clip */}
-        <div className="absolute inset-x-0 -bottom-29 flex items-end justify-center pointer-events-none select-none z-[1] overflow-visible">
-          <span className="text-[28vw] sm:text-[22vw] md:text-[20vw] font-serif font-bold text-[var(--th-watermark)] uppercase tracking-tighter whitespace-nowrap leading-none translate-y-[30%]">
-            ABOUT
-          </span>
-        </div>
-
-        <div className="relative h-full flex items-end overflow-hidden">
-          {/* Background image */}
-          <div className="absolute inset-0">
-            <img
-              src="/gallery/stagecopy.jpeg"
-              alt="Dr. Anand K Shukla"
-              className="w-full h-full object-cover opacity-25 grayscale"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-[var(--th-bg)] via-[var(--th-bg-50)] to-[var(--th-bg-30)]" />
-            <div className="absolute inset-0 bg-gradient-to-r from-[var(--th-bg-80)] to-transparent" />
-          </div>
-
-        {/* Content */}
-        <div className="relative z-10 max-w-7xl mx-auto w-full px-6 md:px-12 pb-16 md:pb-24">
-          <div className="flex items-center gap-4 mb-6">
-            <div className="w-12 h-[1px] bg-[#d4af37]/50" />
-            <span className="text-[#d4af37] text-[10px] uppercase tracking-[0.5em]">
-              Biography
-            </span>
-          </div>
-          <h1 className="text-5xl sm:text-6xl md:text-8xl lg:text-9xl font-serif text-[var(--th-text)] tracking-tight leading-[0.95]">
-            The Story
+      {/* Hero Banner */}
+      <section className="relative w-full h-[40vh] md:h-[50vh] overflow-hidden">
+        <Image
+          src="/gallery/writeonstage.png"
+          alt="Dr. Anand K Shukla"
+          fill
+          priority
+          className="object-cover object-center"
+        />
+        <div className="absolute inset-0 bg-black/30" />
+        <div className="absolute inset-0 flex items-center justify-center">
+          <h1 className="font-serif text-4xl md:text-6xl text-white tracking-wide">
+            The Person
           </h1>
-          <p className="text-[var(--th-text-3)] text-base sm:text-lg md:text-xl max-w-xl mt-4 md:mt-6 font-light leading-relaxed">
-            From the lecture halls of India to global stages — the journey of
-            defining modern leadership.
-          </p>
         </div>
+      </section>
 
-          {/* Bottom edge */}
-          <div className="absolute bottom-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-[var(--th-border-subtle)] to-transparent" />
+      {/* Bio intro */}
+      <section className="max-w-3xl mx-auto px-6 py-12 md:py-16">
+        <p className="text-[var(--text-body)] text-[16px] leading-relaxed font-sans">
+          Dr. Anand K Shukla is a renowned educator, motivational speaker, published author,
+          and thought leader from India. With over 20 years in academia and 50+ global keynotes
+          across 4 continents, he has become a respected figure in the personal development
+          and leadership space. His journey to impact is marked by perseverance, self-belief,
+          and a deep understanding of human potential.
+        </p>
+      </section>
+
+      {/* Sections */}
+      {sections.map((section, i) => (
+        <section
+          key={section.title}
+          className={`py-12 md:py-16 ${i % 2 === 0 ? "bg-white" : "bg-[var(--bg-light)]"}`}
+        >
+          <div className="max-w-3xl mx-auto px-6">
+            <h4 className="font-serif text-2xl md:text-3xl text-[var(--text-dark)] mb-4">
+              {section.title}
+            </h4>
+            <p className="text-[var(--text-body)] text-[16px] leading-relaxed font-sans">
+              {section.text}
+            </p>
+          </div>
+        </section>
+      ))}
+
+      {/* Bottom image strip */}
+      <section className="w-full">
+        <div className="grid grid-cols-2 md:grid-cols-5 gap-0">
+          {[
+            "/gallery/stage_speaking1.jpeg",
+            "/gallery/2.jpeg",
+            "/gallery/stage2.jpeg",
+            "/gallery/4.jpeg",
+            "/gallery/stage_podium1.jpeg",
+          ].map((src, i) => (
+            <div key={i} className="relative aspect-square overflow-hidden">
+              <Image
+                src={src}
+                alt={`Gallery ${i + 1}`}
+                fill
+                className="object-cover"
+              />
+            </div>
+          ))}
         </div>
-      </div>
+      </section>
 
-      <AboutSection />
-
-      {/* ── Epic Horizontal-Scroll Timeline ── */}
-      <EpicTimeline />
-
-      <InviteSection />
       <Footer />
     </main>
   );
