@@ -8,7 +8,7 @@ import { usePathname } from "next/navigation";
 const navLinks = [
   { label: "Home", href: "/" },
   { label: "ABOUT", href: "/about" },
-  { label: "VIDEOS", href: "https://www.youtube.com/@SandeepSeminars/videos", external: true },
+  { label: "VIDEOS", href: "#", external: false },
   { label: "INVITE", href: "/invite" },
 ];
 

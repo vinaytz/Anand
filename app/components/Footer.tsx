@@ -3,7 +3,7 @@ import Link from "next/link";
 const socialLinks = [
   {
     name: "LinkedIn",
-    href: "https://linkedin.com",
+    href: "#",
     color: "#0A66C2",
     icon: (
       <svg viewBox="0 0 24 24" fill="currentColor" className="w-6 h-6">
@@ -13,7 +13,7 @@ const socialLinks = [
   },
   {
     name: "Instagram",
-    href: "https://instagram.com",
+    href: "#",
     color: "#E1306C",
     icon: (
       <svg viewBox="0 0 24 24" fill="currentColor" className="w-6 h-6">
@@ -23,7 +23,7 @@ const socialLinks = [
   },
   {
     name: "X",
-    href: "https://x.com",
+    href: "#",
     color: "#000000",
     icon: (
       <svg viewBox="0 0 24 24" fill="currentColor" className="w-6 h-6">
@@ -33,7 +33,7 @@ const socialLinks = [
   },
   {
     name: "YouTube",
-    href: "https://www.youtube.com/@SandeepSeminars/videos",
+    href: "#",
     color: "#FF0000",
     icon: (
       <svg viewBox="0 0 24 24" fill="currentColor" className="w-6 h-6">
@@ -45,7 +45,7 @@ const socialLinks = [
 
 const footerLinks = [
   { label: "ABOUT", href: "/about" },
-  { label: "VIDEOS", href: "https://www.youtube.com/@SandeepSeminars/videos", external: true },
+  { label: "VIDEOS", href: "#", external: false },
   { label: "INVITE", href: "/invite" },
 ];
 

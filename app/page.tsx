@@ -13,7 +13,7 @@ export default function Home() {
       <Hero />
       <ContentCards />
       <BannerSection
-        src="/gallery/internationl.jpeg"
+        src="/gallery/5.jpeg"
         alt="Dr. Anand K Shukla at Infocomm India"
         position="50% 40%"
         quote="Success is what you gather. Legacy is what you scatter."

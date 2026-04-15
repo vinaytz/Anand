@@ -10,13 +10,13 @@ export default function Hero() {
         alt="Dr. Anand K Shukla on stage"
         fill
         priority
-        className="object-cover object-[48%_100%]"
+        className="object-cover object-[38%_72%]"
       />
       {/* Overlay for text readability */}
       <div className="absolute inset-0 bg-black/20" />
 
       {/* Content */}
-      <div className="relative z-10 text-center px-6 max-w-3xl">
+      <div className="relative z-10 text-center px-6 pt-25 max-w-3xl">
         <h1 className="font-serif text-4xl md:text-6xl text-white italic leading-tight mb-4"
             style={{ textShadow: "0px 2px 30px rgba(0,0,0,0.3)" }}>
           Commanding Respect Through Presence

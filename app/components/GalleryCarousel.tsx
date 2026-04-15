@@ -33,7 +33,7 @@ export default function GalleryCarousel() {
           Moments That Matter
         </h2>
       </div>
-      <div className="relative max-w-[1400px] mx-auto px-6">
+      <div className="relative max-w-350 mx-auto px-6">
         {/* Scroll container */}
         <div
           ref={scrollRef}
@@ -42,7 +42,7 @@ export default function GalleryCarousel() {
           {galleryImages.map((img, i) => (
             <div
               key={i}
-              className="flex-shrink-0 w-[300px] md:w-[380px] aspect-[4/3] relative overflow-hidden group"
+              className="shrink-0 w-75 md:w-95 aspect-4/3 relative overflow-hidden group"
             >
               <Image
                 src={img.src}

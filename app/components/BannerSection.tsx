@@ -10,7 +10,7 @@ interface BannerSectionProps {
 
 export default function BannerSection({ src, alt, position = "center center", quote, attribution }: BannerSectionProps) {
   return (
-    <section className="relative w-full h-[50vh] md:h-[70vh] overflow-hidden">
+    <section className="relative w-full h-[50vh] md:h-[80vh] overflow-hidden">
       <Image
         src={src}
         alt={alt}
@@ -21,7 +21,7 @@ export default function BannerSection({ src, alt, position = "center center", qu
       />
       <div className="absolute inset-0 bg-black/30" />
       {quote && (
-        <div className="absolute inset-0 flex items-center justify-center px-6">
+        <div className="absolute inset-0 pb-64 flex items-center justify-center px-6">
           <div className="text-center max-w-3xl">
             <p className="font-serif text-2xl md:text-4xl lg:text-5xl text-white italic leading-snug mb-4"
                style={{ textShadow: "0 2px 20px rgba(0,0,0,0.3)" }}>
