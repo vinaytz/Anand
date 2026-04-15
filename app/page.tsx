@@ -1,5 +1,6 @@
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
+import StatsBar from "./components/StatsBar";
 import ContentCards from "./components/ContentCards";
 import BannerSection from "./components/BannerSection";
 import VideoSection from "./components/VideoSection";
@@ -11,6 +12,7 @@ export default function Home() {
     <main className="min-h-screen bg-white">
       <Navbar />
       <Hero />
+      <StatsBar />
       <ContentCards />
       <BannerSection
         src="/gallery/5.jpeg"

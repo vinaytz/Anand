@@ -7,10 +7,39 @@ import Footer from "../components/Footer";
 
 export default function InvitePage() {
   const [submitted, setSubmitted] = useState(false);
+  const [sending, setSending] = useState(false);
+  const [error, setError] = useState("");
 
-  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    setSubmitted(true);
+    setSending(true);
+    setError("");
+
+    const form = e.currentTarget;
+    const formData = new FormData(form);
+    const data = {
+      name: formData.get("name") as string,
+      email: formData.get("email") as string,
+      mobile: formData.get("mobile") as string,
+      organisation: formData.get("organisation") as string,
+      eventType: formData.get("eventType") as string,
+      message: formData.get("message") as string,
+    };
+
+    try {
+      const res = await fetch("/api/invite", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data),
+      });
+
+      if (!res.ok) throw new Error("Failed to send");
+      setSubmitted(true);
+    } catch {
+      setError("Something went wrong. Please try again or email directly at dranand@gmail.com");
+    } finally {
+      setSending(false);
+    }
   };
 
   return (
@@ -74,6 +103,7 @@ export default function InvitePage() {
                 </label>
                 <input
                   type="text"
+                  name="name"
                   required
                   className="w-full px-4 py-3 border border-gray-300 bg-white text-(--text-dark) font-sans text-[15px] outline-none focus:border-(--accent) transition-colors"
                 />
@@ -84,6 +114,7 @@ export default function InvitePage() {
                 </label>
                 <input
                   type="email"
+                  name="email"
                   required
                   className="w-full px-4 py-3 border border-gray-300 bg-white text-(--text-dark) font-sans text-[15px] outline-none focus:border-(--accent) transition-colors"
                 />
@@ -97,6 +128,7 @@ export default function InvitePage() {
                 </label>
                 <input
                   type="tel"
+                  name="mobile"
                   required
                   className="w-full px-4 py-3 border border-gray-300 bg-white text-(--text-dark) font-sans text-[15px] outline-none focus:border-(--accent) transition-colors"
                 />
@@ -107,6 +139,7 @@ export default function InvitePage() {
                 </label>
                 <input
                   type="text"
+                  name="organisation"
                   required
                   className="w-full px-4 py-3 border border-gray-300 bg-white text-(--text-dark) font-sans text-[15px] outline-none focus:border-(--accent) transition-colors"
                 />
@@ -119,6 +152,7 @@ export default function InvitePage() {
               </label>
               <select
                 required
+                name="eventType"
                 defaultValue=""
                 className="w-full px-4 py-3 border border-gray-300 bg-white text-(--text-dark) font-sans text-[15px] outline-none focus:border-(--accent) transition-colors"
               >
@@ -137,15 +171,21 @@ export default function InvitePage() {
               </label>
               <textarea
                 rows={4}
+                name="message"
                 className="w-full px-4 py-3 border border-gray-300 bg-white text-(--text-dark) font-sans text-[15px] outline-none focus:border-(--accent) transition-colors resize-vertical"
               />
             </div>
 
+            {error && (
+              <p className="text-red-600 text-[14px] font-sans text-center">{error}</p>
+            )}
+
             <button
               type="submit"
-              className="w-full min-h-14 bg-(--btn-bg) text-(--btn-text) text-[14px] uppercase tracking-widest font-sans font-semibold hover:bg-(--btn-hover) transition-colors duration-300 cursor-pointer"
+              disabled={sending}
+              className="w-full min-h-14 bg-(--btn-bg) text-(--btn-text) text-[14px] uppercase tracking-widest font-sans font-semibold hover:bg-(--btn-hover) transition-colors duration-300 cursor-pointer disabled:opacity-60 disabled:cursor-not-allowed"
             >
-              Submit Invitation
+              {sending ? "Sending..." : "Submit Invitation"}
             </button>
           </form>
         )}

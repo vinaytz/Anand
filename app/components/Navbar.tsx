@@ -8,7 +8,7 @@ import { usePathname } from "next/navigation";
 const navLinks = [
   { label: "Home", href: "/" },
   { label: "ABOUT", href: "/about" },
-  { label: "VIDEOS", href: "#", external: false },
+  { label: "VIDEOS", href: "https://www.youtube.com/@ProfAKSClasses/videos", external: true },
   { label: "INVITE", href: "/invite" },
 ];
 
@@ -20,7 +20,7 @@ export default function Navbar() {
     <header className="sticky top-0 z-50 bg-white shadow-[0_2px_6px_0px_rgba(0,0,0,0.08)]">
       <div className="max-w-7xl mx-auto px-6 flex items-center justify-between h-18">
         {/* Logo */}
-        <Link href="/" className="flex items-center gap-3 no-underline">
+        <Link href="/" className="flex items-center gap-2 sm:gap-3 no-underline min-w-0 shrink">
           <Image
             src="/gallery/semiMain.png"
             alt="Dr. Anand K Shukla"
@@ -28,7 +28,7 @@ export default function Navbar() {
             height={44}
             className="rounded-full object-cover"
           />
-          <span className="font-serif text-[22px] text-(--text-dark) tracking-tight">
+          <span className="font-serif text-[17px] sm:text-[20px] md:text-[22px] text-(--text-dark) tracking-tight leading-tight">
             Dr. Anand K Shukla
           </span>
         </Link>

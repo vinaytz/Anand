@@ -7,11 +7,11 @@ const cards = [
     heading: "SPEAKING",
     text: "50+ keynotes across 4 continents — TEDx, IIT Delhi, IIM Ahmedabad, and global leadership forums.",
     cta: "Watch Talks",
-    href: "#",
+    href: "https://www.youtube.com/@ProfAKSClasses/videos",
     external: true,
   },
   {
-    image: "/gallery/4.jpeg",
+    image: "/gallery/1772470177807.jpeg",
     heading: "ABOUT",
     text: "An educator, author, and thought leader who has impacted 100K+ lives through purpose and resilience.",
     cta: "Learn More",
@@ -37,7 +37,7 @@ export default function ContentCards() {
             const inner = (
               <div key={card.heading} className="group cursor-pointer">
                 {/* Image with overlay label */}
-                <div className="relative aspect-4/5 overflow-hidden">
+                <div className="relative aspect-video md:aspect-4/5 overflow-hidden">
                   <Image
                     src={card.image}
                     alt={card.heading}

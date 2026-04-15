@@ -43,7 +43,8 @@ export default function AboutPage() {
           fill
           priority
           sizes="100vw"
-          className="object-cover object-center"
+          // className="object-cover object-center"
+          className="object-cover object-[80%_10%]"
         />
         <div className="absolute inset-0 bg-black/35" />
         <div className="absolute inset-0 flex items-center justify-center">
@@ -79,7 +80,7 @@ export default function AboutPage() {
             <div className="max-w-6xl mx-auto px-6">
               <div className={`grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16 items-center ${imageLeft ? "" : "md:[direction:rtl]"}`}>
                 {/* Image */}
-                <div className={`relative aspect-4/3 overflow-hidden ${imageLeft ? "" : "md:[direction:ltr]"}`}>
+                <div className={`relative aspect-[4/3] overflow-hidden ${imageLeft ? "" : "md:[direction:ltr]"}`}>
                   <Image
                     src={section.image}
                     alt={section.title}
@@ -112,7 +113,7 @@ export default function AboutPage() {
             { src: "/gallery/2.jpeg", pos: "center" },
             { src: "/gallery/4_new.jpeg", pos: "center" },
           ].map((img, i) => (
-            <div key={i} className="relative aspect-4/3 overflow-hidden">
+            <div key={i} className="relative aspect-[4/3] overflow-hidden">
               <Image
                 src={img.src}
                 alt={`Gallery ${i + 1}`}

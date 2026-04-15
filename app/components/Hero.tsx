@@ -6,17 +6,17 @@ export default function Hero() {
     <section className="relative w-full min-h-[70vh] md:min-h-[85vh] flex items-center justify-center overflow-hidden">
       {/* Background Image */}
       <Image
-        src="/gallery/stagecopy.jpeg"
+        src="/gallery/b4kimhn5erklggfnkvsn.webp"
         alt="Dr. Anand K Shukla on stage"
         fill
         priority
-        className="object-cover object-[38%_72%]"
+        className="object-cover object"
       />
       {/* Overlay for text readability */}
       <div className="absolute inset-0 bg-black/20" />
 
       {/* Content */}
-      <div className="relative z-10 text-center px-6 pt-25 max-w-3xl">
+      <div className="relative z-10 text-center px-6 pt-20 md:pt-28 max-w-3xl">
         <h1 className="font-serif text-4xl md:text-6xl text-white italic leading-tight mb-4"
             style={{ textShadow: "0px 2px 30px rgba(0,0,0,0.3)" }}>
           Commanding Respect Through Presence
