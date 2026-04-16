@@ -55,7 +55,7 @@ export default function InvitePage() {
     fill
     priority
     sizes="100vw"
-    className="object-cover object-left md:object-center"
+    className=" object-left md:object-center"
   />
 
   <div className="absolute inset-0 bg-black/40" />
