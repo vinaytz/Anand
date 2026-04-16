@@ -10,7 +10,7 @@ export default function Hero() {
         alt="Dr. Anand K Shukla on stage"
         fill
         priority
-        className="object-cover object"
+        className="object-cover object-[65%_center]"
       />
       {/* Overlay for text readability */}
       <div className="absolute inset-0 bg-black/20" />

@@ -37,13 +37,13 @@ export default function ContentCards() {
             const inner = (
               <div key={card.heading} className="group cursor-pointer">
                 {/* Image with overlay label */}
-                <div className="relative aspect-video md:aspect-4/5 overflow-hidden">
+                <div className="relative aspect-[4/5] md:aspect-4/5 overflow-hidden">
                   <Image
                     src={card.image}
                     alt={card.heading}
                     fill
                     sizes="(max-width: 768px) 100vw, 33vw"
-                    className="object-cover transition-transform duration-700 group-hover:scale-105"
+                    className="object-cover object-top   transition-transform duration-700 group-hover:scale-105"
                   />
                   <div className="absolute inset-0 bg-linear-to-t from-black/50 via-black/10 to-transparent" />
                   <div className="absolute bottom-0 left-0 right-0 p-6">
