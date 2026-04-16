@@ -48,15 +48,49 @@ export default function InvitePage() {
 
       {/* Hero Banner */}
       <section className="relative w-full h-[35vh] md:h-[45vh] overflow-hidden">
-        <Image
-          src="/gallery/stage.jpeg"
-          alt="Invite Dr. Anand K Shukla"
-          fill
-          priority
-          sizes="100vw"
-          className="object-cover"
-          style={{ objectPosition: "59% 33%" }}
-        />
+      <Image
+  src="/invite.png"
+  alt="Invite Dr. Anand K Shukla"
+  fill
+  priority
+  sizes="100vw"
+  className="object-contain"
+/><section className="relative w-full h-[35vh] md:h-[45vh] overflow-hidden">
+
+  {/* Blurred Background */}
+  <Image
+    src="/invite.png"
+    alt="background"
+    fill
+    className="object-cover blur-xl scale-110"
+  />
+
+  {/* Main Image */}
+  <Image
+    src="/invite.png"
+    alt="Invite Dr. Anand K Shukla"
+    fill
+    priority
+    sizes="100vw"
+    className="object-contain"
+  />
+
+  {/* Overlay */}
+  <div className="absolute inset-0 bg-black/1" />
+
+  {/* Content */}
+  <div className="absolute inset-0 flex items-center justify-center">
+    <div className="text-center">
+      <h1 className="font-serif text-3xl md:text-5xl text-white tracking-wide mb-2">
+        Invite Dr. Anand
+      </h1>
+      <p className="text-white/70 text-[13px] uppercase tracking-[0.2em] font-sans">
+        Keynote · Workshop · Guest Lecture
+      </p>
+    </div>
+  </div>
+
+</section>
         <div className="absolute inset-0 bg-black/40" />
         <div className="absolute inset-0 flex items-center justify-center">
           <div className="text-center">
