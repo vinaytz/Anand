@@ -24,7 +24,7 @@ export default function Home() {
       <VideoSection />
       <GalleryCarousel />
       <div className="p-5  flex justify-center items-center">
-      <img src="about.png" className="rounded-2xl" alt="" />
+      <img src="footer.png" className="rounded-2xl" alt="" />
 
       </div>
       <Footer />
