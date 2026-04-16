@@ -50,12 +50,12 @@ export default function InvitePage() {
 
 <section className="relative w-full h-[28vh] md:h-[60vh] overflow-hidden">
   <Image
-    src="/invite.png"
+    src="/gallery/stage_podium1.jpeg"
     alt="Invite Dr. Anand K Shukla"
     fill
     priority
     sizes="100vw"
-    className=" object-left md:object-center"
+className="object-cover object-[center_40%]"
   />
 
   <div className="absolute inset-0 bg-black/40" />

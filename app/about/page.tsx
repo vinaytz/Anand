@@ -36,16 +36,15 @@ export default function AboutPage() {
       <Navbar />
 
       {/* Hero Banner */}
-      <section className="relative w-full h-[45vh] md:h-[55vh] overflow-hidden">
-        <Image
-          src="/gallery/writeonstage.png"
-          alt="Dr. Anand K Shukla"
-          fill
-          priority
-          sizes="100vw"
-          // className="object-cover object-center"
-          className="object-cover object-[80%_10%]"
-        />
+<section className="relative w-full h-[28vh] md:h-[60vh] overflow-hidden">
+  <Image
+    src="/invite.png"
+    alt="Invite Dr. Anand K Shukla"
+    fill
+    priority
+    sizes="100vw"
+    className=" object-left md:object-center"
+  />
         <div className="absolute inset-0 bg-black/35" />
         <div className="absolute inset-0 flex items-center justify-center">
           <div className="text-center">
