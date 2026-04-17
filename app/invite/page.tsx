@@ -35,6 +35,7 @@ export default function InvitePage() {
 
       if (!res.ok) throw new Error("Failed to send");
       setSubmitted(true);
+      window.scrollTo({ top: 0, behavior: "smooth" });
     } catch {
       setError(
         "Something went wrong. Please try again or email directly at invite@theanandshukla.com",

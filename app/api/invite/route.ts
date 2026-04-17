@@ -11,9 +11,9 @@ export async function POST(req: NextRequest) {
     }
 
     const transporter = nodemailer.createTransport({
-      service: "smtp.titan.email",
+      host: "smtpout.secureserver.net",
       port: 465,
-      secure: true, 
+      secure: true,
       auth: {
         user: process.env.SMTP_USER,
         pass: process.env.SMTP_PASS,
@@ -41,8 +41,9 @@ export async function POST(req: NextRequest) {
     await transporter.sendMail(mailOptions);
 
     return NextResponse.json({ success: true });
-  } catch (error) {
-    console.error("Email send error:", error);
-    return NextResponse.json({ error: "Failed to send email" }, { status: 500 });
+  } catch (error: unknown) {
+    const message = error instanceof Error ? error.message : "Unknown error";
+    console.error("Email send error:", message);
+    return NextResponse.json({ error: "Failed to send email", detail: message }, { status: 500 });
   }
 }
