@@ -22,7 +22,7 @@ export async function POST(req: NextRequest) {
 
     const mailOptions = {
       from: `"Website Invitation" <${process.env.SMTP_USER}>`,
-      to: "dranand@gmail.com",
+      to: "invite@theanandshukla.com",
       replyTo: email,
       subject: `New Invitation: ${eventType} — from ${name}`,
       html: `
