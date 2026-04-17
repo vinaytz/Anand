@@ -17,6 +17,9 @@ const inter = Inter({
 export const metadata: Metadata = {
   title: "Dr. Anand K Shukla | Scholar. Speaker. Thought Leader.",
   description: "Dr. Anand K Shukla is a renowned educator, motivational speaker, and published author impacting 100K+ lives across 4 continents.",
+  icons: {
+    icon: "/favicon.png",
+  },
 };
 
 export default function RootLayout({
