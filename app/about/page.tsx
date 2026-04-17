@@ -5,7 +5,7 @@ import Footer from "../components/Footer";
 const sections = [
   {
     title: "Academia & Leadership",
-    text: "A senior IEEE member, Prof. (Dr.) Anand Kr. Shukla is a Professor and  Higher Education Leader of Computer Science and Application at Lovely Professional University (NAAC A++, NIRF 31, QS Ranking 4, WURI 04) — India's largest and most reputed private university. Across a career spanning 22 years, he has served in several universities and institutions as Head, Director,  Higher Education Leader, and Executive  Higher Education Leader/Director.",
+    text: "A senior IEEE member, Prof. (Dr.) Anand Kr. Shukla is a  Higher Education Leader of Computer Science and Application at Lovely Professional University (NAAC A++, NIRF 31, QS Ranking 4, WURI 04) — India's largest and most reputed private university. Across a career spanning 22 years, he has served in several universities and institutions as Head, Director,  Higher Education Leader, and Executive  Higher Education Leader/Director.",
     image: "/gallery/stage2.jpeg",
   },
   {
@@ -52,7 +52,7 @@ export default function AboutPage() {
               The Person
             </h1>
             <p className="text-white/70 text-[13px] uppercase tracking-[0.25em] font-sans">
-              Professor &middot; Higher Education Leader &middot; Author &middot; Speaker
+              Higher Education Leader &middot; Author &middot; Speaker
             </p>
           </div>
         </div>
@@ -61,7 +61,7 @@ export default function AboutPage() {
       {/* Bio intro */}
       <section className="max-w-3xl mx-auto px-6 py-14 md:py-20">
         <p className="text-(--text-body) text-[17px] leading-[1.8] font-sans text-center">
-          Prof. (Dr.) Anand Kr. Shukla is a Professor, Higher Education Leader, senior IEEE member, published author,
+          Prof. (Dr.) Anand Kr. Shukla is a Higher Education Leader, senior IEEE member, published author,
           and internationally recognised Tech &amp; Motivational Speaker. With 22 years in academia,
           100+ publications, 15 patents, and keynotes at IEEE &amp; Springer conferences worldwide,
           he is a defining voice in education, research, and leadership.

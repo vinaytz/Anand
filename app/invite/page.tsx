@@ -210,29 +210,42 @@ className="object-cover object-[center_40%]"
       </section>
 
       {/* Direct Contact */}
-      <section className="w-full bg-(--bg-light) py-14 md:py-20">
-        <div className="max-w-2xl mx-auto px-6 text-center">
-          <p className="text-(--text-body) text-[12px] uppercase tracking-[0.25em] font-sans mb-4">
+      <section className="w-full bg-gradient-to-br from-[#0a1628] to-[#112240] py-20 md:py-28">
+        <div className="max-w-3xl mx-auto px-6 text-center">
+          {/* Decorative envelope icon */}
+          <div className="w-16 h-16 mx-auto mb-8 rounded-full bg-white/10 backdrop-blur flex items-center justify-center ring-1 ring-white/20">
+            <svg className="w-7 h-7 text-white/90" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5}
+                d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+            </svg>
+          </div>
+
+          <p className="text-white/50 text-[11px] uppercase tracking-[0.35em] font-sans mb-4">
             Prefer to reach out directly?
           </p>
-          <h2 className="font-serif text-2xl md:text-3xl text-(--text-dark) mb-6">
+          <h2 className="font-serif text-3xl md:text-5xl text-white tracking-wide mb-5">
             Write to Us
           </h2>
-          <p className="text-(--text-body) text-[16px] leading-relaxed font-sans mb-8">
-            For speaking invitations, collaborations, or any enquiries, you can
-            reach Dr. Anand&apos;s team directly at the address below. We typically
-            respond within 2–3 business days.
+          <p className="text-white/60 text-[16px] md:text-[17px] leading-relaxed font-sans mb-10 max-w-xl mx-auto">
+            For speaking invitations, collaborations, or any enquiries — reach
+            Dr. Anand&apos;s team directly. We typically respond within 2–3 business days.
           </p>
+
+          {/* CTA email button */}
           <a
             href="mailto:invite@theanandshukla.com"
-            className="inline-flex items-center gap-3 text-(--accent) font-sans text-[16px] md:text-[18px] font-semibold tracking-wide hover:underline underline-offset-4 transition-all"
+            className="group inline-flex items-center gap-3 px-8 py-4 bg-white text-[#0a1628] font-sans text-[14px] md:text-[15px] font-semibold uppercase tracking-[0.15em] no-underline hover:bg-white/90 transition-all duration-300"
           >
-            <svg className="w-5 h-5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.8}
+            <svg className="w-5 h-5 shrink-0 transition-transform duration-300 group-hover:-translate-y-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
                 d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
             </svg>
             invite@theanandshukla.com
           </a>
+
+          <p className="text-white/30 text-[12px] font-sans mt-6 tracking-wide">
+            Or use the form above to submit your invitation details.
+          </p>
         </div>
       </section>
 
