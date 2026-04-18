@@ -65,7 +65,7 @@ export default function EngagementsPage() {
         />
         <div className="relative z-10 max-w-6xl mx-auto px-6 pt-14 pb-10 md:pt-20 md:pb-14">
           <h1 className="font-serif text-3xl md:text-[42px] text-(--text-dark) leading-tight tracking-tight">
-            Global Engagements
+            International Presence
           </h1>
           <p className="text-(--text-body) text-[15px] md:text-base mt-3 max-w-xl leading-relaxed">
             Invited as a keynote and guest speaker at international conferences
