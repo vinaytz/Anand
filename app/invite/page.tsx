@@ -22,6 +22,7 @@ export default function InvitePage() {
       email: formData.get("email") as string,
       mobile: formData.get("mobile") as string,
       organisation: formData.get("organisation") as string,
+      sessionTopic: formData.get("sessionTopic") as string,
       eventType: formData.get("eventType") as string,
       message: formData.get("message") as string,
     };
@@ -163,6 +164,29 @@ className="object-cover object-[center_40%]"
 
             <div>
               <label className="block text-[12px] uppercase tracking-[0.15em] text-(--text-body) font-sans mb-1.5">
+                Session Topic *
+              </label>
+              <select
+                required
+                name="sessionTopic"
+                defaultValue=""
+                className="w-full px-4 py-3 border border-gray-300 bg-white text-(--text-dark) font-sans text-[15px] outline-none focus:border-(--accent) transition-colors"
+              >
+                <option value="" disabled>
+                  Select session topic
+                </option>
+                <option value="motivational">Motivational</option>
+                <option value="career-growth">Career Growth</option>
+                <option value="technical-ai-ml">Technical — AI &amp; Machine Learning</option>
+                <option value="technical-python-java">Technical — Python / Java</option>
+                <option value="technical-general">Technical (General)</option>
+                <option value="spirituality">Spirituality</option>
+                <option value="other">Other</option>
+              </select>
+            </div>
+
+            <div>
+              <label className="block text-[12px] uppercase tracking-[0.15em] text-(--text-body) font-sans mb-1.5">
                 Event Type *
               </label>
               <select
@@ -211,7 +235,7 @@ className="object-cover object-[center_40%]"
       </section>
 
       {/* Direct Contact */}
-      <section className="w-full bg-gradient-to-br from-[#0a1628] to-[#112240] py-20 md:py-28">
+      <section className="w-full bg-linear-to-br from-[#0a1628] to-[#112240] py-20 md:py-28">
         <div className="max-w-3xl mx-auto px-6 text-center">
           {/* Decorative envelope icon */}
           <div className="w-16 h-16 mx-auto mb-8 rounded-full bg-white/10 backdrop-blur flex items-center justify-center ring-1 ring-white/20">

@@ -2,6 +2,7 @@ import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
 import StatsBar from "./components/StatsBar";
 import ContentCards from "./components/ContentCards";
+import SpeakerTopics from "./components/SpeakerTopics";
 import BannerSection from "./components/BannerSection";
 import VideoSection from "./components/VideoSection";
 import GalleryCarousel from "./components/GalleryCarousel";
@@ -21,6 +22,7 @@ export default function Home() {
         quote="Success is what you gather. Legacy is what you scatter."
         attribution="Dr. Anand K Shukla"
       />
+      <SpeakerTopics />
       <VideoSection />
       <GalleryCarousel />
       <div className="p-5  flex justify-center items-center">
