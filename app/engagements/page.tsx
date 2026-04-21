@@ -40,6 +40,12 @@ const invitations = [
     subtitle: "AEMN-2023 — Speaker Invitation Announcement",
     flag: "🇰🇷",
   },
+  {
+    src: "/invites/newinvite.jpeg",
+    title: "London, UK",
+    subtitle: "9th International Conference on Cancer Research and Oncology (Cancer Congress 2026)",
+    flag: "🇬🇧",
+  },
 ];
 
 export default function EngagementsPage() {

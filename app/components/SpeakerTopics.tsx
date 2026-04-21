@@ -13,9 +13,8 @@ const topics = [
     external: false,
   },
   {
-    image: "/gallery/WhatsApp Image 2026-01-25 at 11.43.52 AM.jpeg",
+    image: "/education.jpeg",
     objectPosition: "center top",
- 
     heading: "TECH SESSIONS",
     text: "A senior IEEE member and published researcher, Dr. Shukla delivers immersive sessions on Artificial Intelligence, Machine Learning, Python, Java, and emerging technologies. His 100+ YouTube lectures reflect the same depth and accessibility he brings to live audiences worldwide.",
     cta: "WATCH TECH LECTURES",
@@ -23,7 +22,7 @@ const topics = [
     external: true,
   },
   {
-    image: "/gallery/new.jpeg",
+    image: "/spritual.jpeg",
     objectPosition: "center top",
     tag: "Session 03",
     heading: "SPIRITUALITY",
